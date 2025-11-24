@@ -1,6 +1,6 @@
 // Feather disable all
 
-function ImGuiSystemShutdown()
+function ImGuiSystemFinalize()
 {
     static _system = __ImGuiSystem();
     with(_system)

@@ -7,7 +7,7 @@ function ImGuiSystemInitialize(_configFlags = ImGuiConfigFlags.None)
     {
         if (__initialized) return;
         
-        var _newState = new ImGuiState(_configFlags);
+        var _newState = new __ImGuiClassState(_configFlags);
         if (_newState.__initialized)
         {
             __state = _newState;

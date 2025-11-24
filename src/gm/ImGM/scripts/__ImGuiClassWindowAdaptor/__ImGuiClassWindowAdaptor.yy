@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__ImGuiState",
+  "%Name":"__ImGuiClassWindowAdaptor",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__ImGuiState",
+  "name":"__ImGuiClassWindowAdaptor",
   "parent":{
     "name":"(Internals)",
     "path":"folders/ImGM/(Internals).yy",

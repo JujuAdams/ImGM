@@ -1,6 +1,6 @@
 // Feather disable all
 
-function ImGuiSystemNewFrame()
+function ImGuiSystemBeginStep()
 {
     static _system = __ImGuiSystem();
     with(_system)

@@ -11,7 +11,6 @@ function __ImGuiSystem()
         show_debug_message("ImGui: This is a heavily editted version built by Juju Adams");
         
         __initialized = false;
-        
         __state = undefined;
         
         vertex_format_begin();

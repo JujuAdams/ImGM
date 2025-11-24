@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ImGuiSystemShutdown",
+  "%Name":"ImGuiSystemFinalize",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ImGuiSystemShutdown",
+  "name":"ImGuiSystemFinalize",
   "parent":{
     "name":"System",
     "path":"folders/ImGM/System.yy",

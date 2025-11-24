@@ -1,1 +1,1 @@
-ImGuiSystemNewFrame();
+ImGuiSystemBeginStep();

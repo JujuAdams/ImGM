@@ -1,6 +1,6 @@
 // Feather disable all
 
-function ImGuiSystemRender()
+function ImGuiSystemPreDraw()
 {
     static _system = __ImGuiSystem();
     with(_system)

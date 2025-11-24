@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"ImGuiSystemNewFrame",
+  "%Name":"__ImGuiClassState",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ImGuiSystemNewFrame",
+  "name":"__ImGuiClassState",
   "parent":{
-    "name":"System",
-    "path":"folders/ImGM/System.yy",
+    "name":"(Internals)",
+    "path":"folders/ImGM/(Internals).yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

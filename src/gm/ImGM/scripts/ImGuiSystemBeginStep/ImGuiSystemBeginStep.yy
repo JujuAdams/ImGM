@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ImGuiSystemRender",
+  "%Name":"ImGuiSystemBeginStep",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ImGuiSystemRender",
+  "name":"ImGuiSystemBeginStep",
   "parent":{
     "name":"System",
     "path":"folders/ImGM/System.yy",

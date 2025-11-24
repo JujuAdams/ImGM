@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ImGuiSystemEndStep",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ImGuiSystemEndStep",
+  "parent":{
+    "name":"System",
+    "path":"folders/ImGM/System.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

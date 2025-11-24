@@ -1,6 +1,6 @@
 // Feather disable all
 
-function ImGuiState(_configFlags = ImGuiConfigFlags.None) constructor
+function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
 {
     var _osInfo = os_get_info();
     var _device = _osInfo[? "video_d3d11_device"];
@@ -25,7 +25,7 @@ function ImGuiState(_configFlags = ImGuiConfigFlags.None) constructor
         D3DDevice: _device,
         D3DDeviceContext: _deviceContext,
         Context: ImGuiCreateContext(),
-        Window: new ImGuiBaseMainWindow(),
+        Window: new __ImGuiClassWindowAdaptor(),
         Time: 0,
         Framerate: game_get_speed(gamespeed_fps),
     };

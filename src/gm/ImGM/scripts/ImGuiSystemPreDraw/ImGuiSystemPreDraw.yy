@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"ImGuiSystemEndFrame",
+  "%Name":"ImGuiSystemPreDraw",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ImGuiSystemEndFrame",
+  "name":"ImGuiSystemPreDraw",
   "parent":{
     "name":"System",
     "path":"folders/ImGM/System.yy",
