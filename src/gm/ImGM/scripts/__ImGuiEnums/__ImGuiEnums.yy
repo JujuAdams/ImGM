@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__ImGuiEnums",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__ImGuiEnums",
+  "parent":{
+    "name":"ImGM",
+    "path":"folders/ImGM.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,7 +1,7 @@
 #region ImGM Macros
 
 /// Current ImGM extension version
-#macro IMGM_VERSION (extension_get_version("ImGM"))
+#macro IMGM_VERSION (extension_get_version("__ImGMExtension"))
 
 /// Initial size of grow buffers (draw and font)
 #macro IMGUI_GM_BUFFER_SIZE             1024 * 8
@@ -103,7 +103,7 @@ function ImGuiState() constructor {
         if __initialized return;
 
         if self.Engine.Context == pointer_null {
-            self.Engine.Context = ImGui.CreateContext();
+            self.Engine.Context = ImGuiCreateContext();
         }
 
         var window = self.Engine.Window;
@@ -156,7 +156,7 @@ function ImGuiState() constructor {
 
     static __Use = function(flags=StateUpdateFlags.None) {
         ImGui.__state = self;
-        ImGui.SetCurrentContext(self.Engine.Context);
+        ImGuiSetCurrentContext(self.Engine.Context);
         var _data = self.GetData();
         if flags != StateUpdateFlags.None {
             __imgui_update_state_from_struct(_data, flags);
@@ -175,7 +175,7 @@ function ImGuiState() constructor {
     static GetData = __GetData;
 
     static __Destroy = function() {
-        if is_ptr(self.Engine.Context) ImGui.DestroyContext(self.Engine.Context);
+        if is_ptr(self.Engine.Context) ImGuiDestroyContext(self.Engine.Context);
         if buffer_exists(self.Renderer.CmdBuffer) buffer_delete(self.Renderer.CmdBuffer);
         if buffer_exists(self.Renderer.FontBuffer) buffer_delete(self.Renderer.FontBuffer);
         if surface_exists(self.Renderer.Surface) surface_free(self.Renderer.Surface);

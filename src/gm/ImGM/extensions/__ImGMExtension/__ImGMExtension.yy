@@ -1,6 +1,6 @@
 {
   "$GMExtension":"",
-  "%Name":"ImGM",
+  "%Name":"__ImGMExtension",
   "androidactivityinject":"",
   "androidclassname":"",
   "androidcodeinjection":"",
@@ -480,7 +480,7 @@
   "maccompilerflags":"",
   "maclinkerflags":"",
   "macsourcedir":"",
-  "name":"ImGM",
+  "name":"__ImGMExtension",
   "options":[],
   "optionsFile":"options.json",
   "packageId":"",
