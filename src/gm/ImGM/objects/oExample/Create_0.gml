@@ -1,3 +1,3 @@
 /// @description Create event
 
-ImGui.__Initialize(ImGuiConfigFlags.DockingEnable);
+ImGuiSystemInitialize(ImGuiConfigFlags.DockingEnable);

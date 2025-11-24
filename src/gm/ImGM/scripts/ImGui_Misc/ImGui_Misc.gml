@@ -32,9 +32,6 @@ function ImGuiBaseMainWindow() constructor {
     static SetCursor = function(cursor) {return window_set_cursor(cursor);}
     static IsMinimized = function() {return GetWidth() == 0 and GetHeight() == 0;}
     static Destroy = undefined;
-    static DrawBegin = undefined;
-    static DrawEnd = undefined;
-    static DrawClear = undefined;
 }
 
 /**
@@ -154,14 +151,18 @@ function ImGuiState() constructor {
     }
     static Initialize = __Initialize;
 
-    static __Use = function(flags=StateUpdateFlags.None) {
-        ImGui.__state = self;
+    static __Use = function(flags=StateUpdateFlags.None)
+    {
+        static _system = __ImGuiSystem();
+        
+        _system.__state = self;
         ImGuiSetCurrentContext(self.Engine.Context);
         var _data = self.GetData();
         if flags != StateUpdateFlags.None {
             __imgui_update_state_from_struct(_data, flags);
         }
     }
+    
     static Use = __Use;
 
     static __GetData = function() {
@@ -174,20 +175,25 @@ function ImGuiState() constructor {
     }
     static GetData = __GetData;
 
-    static __Destroy = function() {
-        if is_ptr(self.Engine.Context) ImGuiDestroyContext(self.Engine.Context);
-        if buffer_exists(self.Renderer.CmdBuffer) buffer_delete(self.Renderer.CmdBuffer);
-        if buffer_exists(self.Renderer.FontBuffer) buffer_delete(self.Renderer.FontBuffer);
-        if surface_exists(self.Renderer.Surface) surface_free(self.Renderer.Surface);
-        self.Engine.Context = pointer_null;
-        self.Engine.Window.__imgui_state = undefined;
-        self.Renderer.CmdBuffer = -1;
-        self.Renderer.FontBuffer = -1;
-        self.Renderer.Surface = -1;
-        self.__initialized = false;
+    static __Destroy = function()
+    {
+        if is_ptr(Engine.Context) ImGuiDestroyContext(Engine.Context);
+        Engine.Context = pointer_null;
+        
+        if buffer_exists(Renderer.CmdBuffer) buffer_delete(Renderer.CmdBuffer);
+        Renderer.CmdBuffer = -1;
+        
+        if buffer_exists(Renderer.FontBuffer) buffer_delete(Renderer.FontBuffer);
+        Renderer.FontBuffer = -1;
+        
+        if surface_exists(Renderer.Surface) surface_free(Renderer.Surface);
+        Renderer.Surface = -1;
+        
+        Engine.Window.__imgui_state = undefined;
+        __initialized = false;
     }
+    
     static Destroy = __Destroy;
-
 }
 
 /**
