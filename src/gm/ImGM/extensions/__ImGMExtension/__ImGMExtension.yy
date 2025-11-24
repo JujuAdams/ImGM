@@ -486,7 +486,7 @@
   "packageId":"",
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGM/(Internals).yy",
+    "path":"folders/ImGui/(Internals).yy",
   },
   "productId":"",
   "resourceType":"GMExtension",

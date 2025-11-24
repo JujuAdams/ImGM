@@ -6,7 +6,7 @@
   "name":"__ImGuiCreateCursorMapping",
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGM/(Internals).yy",
+    "path":"folders/ImGui/(Internals).yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

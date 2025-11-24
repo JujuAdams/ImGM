@@ -6,7 +6,7 @@
   "name":"ImGuiSystemPreDraw",
   "parent":{
     "name":"System",
-    "path":"folders/ImGM/System.yy",
+    "path":"folders/ImGui/System.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

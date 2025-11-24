@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"__ImGuiConstants",
   "parent":{
-    "name":"ImGM",
-    "path":"folders/ImGM.yy",
+    "name":"ImGui",
+    "path":"folders/ImGui.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

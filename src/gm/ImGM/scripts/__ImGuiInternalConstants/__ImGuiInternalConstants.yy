@@ -6,7 +6,7 @@
   "name":"__ImGuiInternalConstants",
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGM/(Internals).yy",
+    "path":"folders/ImGui/(Internals).yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
