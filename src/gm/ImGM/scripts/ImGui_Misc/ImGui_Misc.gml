@@ -180,7 +180,7 @@ function ImGuiState() constructor {
         var info = {
             D3DDevice: self.Engine.D3DDevice,
             D3DDeviceContext: self.Engine.D3DDeviceContext,
-            GFlags: ImGui.__GFlags,
+            GFlags: 3, //Magic number derived from old enum
             ConfigFlagsOverrideSet: config_flags_set,
             ConfigFlagsOverrideClear: config_flags_clear,
         };
@@ -355,21 +355,6 @@ function ImGuiSelectionBasicStorage(size=0, preserve_order=undefined) constructo
 
 /// @section Enums
 /// Manually-updated section for specific enums
-
-/**
- * @enum ImGuiGFlags
- * @context ImGM
- * @desc Flags for the initializing the extension (backend renderer, implementation...)
- *
- */
-enum ImGuiGFlags {
-    None = 0,
-    RENDERER_GM = 1 << 0,
-    IMPL_GM = 1 << 1,
-    IMPL_DX11 = 1 << 2,
-    IMPL_WIN32 = 1 << 3,
-    GM = ImGuiGFlags.IMPL_GM | ImGuiGFlags.RENDERER_GM,
-}
 
 /**
  * @enum ImGuiReturnMask

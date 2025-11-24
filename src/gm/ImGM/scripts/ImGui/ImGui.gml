@@ -1211,7 +1211,6 @@ function ImGui() constructor {
 	 * @return {Undefined}
 	 */
 	static DrawListAddImage = function(list, sprite, subimg, x1, y1, x2, y2, col=c_white) {
-		if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) texture_set_stage(0, sprite_get_texture(sprite, subimg)); 
 		return __imgui_drawlist_add_image(list, sprite, subimg, x1, y1, x2, y2, col, sprite_get_uvs(sprite, subimg));
 	}
 
@@ -1232,7 +1231,6 @@ function ImGui() constructor {
 	 * @return {Undefined}
 	 */
 	static DrawListAddImageRounded = function(list, sprite, subimg, x1, y1, x2, y2, col, rounding, flags) {
-		if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) texture_set_stage(0, sprite_get_texture(sprite, subimg)); 
 		return __imgui_drawlist_add_image_rounded(list, sprite, subimg, x1, y1, x2, y2, col, rounding, flags, sprite_get_uvs(sprite, subimg));
 	}
 
@@ -1709,7 +1707,6 @@ function ImGui() constructor {
 	 * @return {Undefined}
 	 */
 	static DrawListPushTextureID = function(list, sprite, subimg) {
-		if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) texture_set_stage(0, sprite_get_texture(sprite, subimg)); 
 		return __imgui_drawlist_push_textureid(list, sprite, subimg);
 	}
 
@@ -2730,7 +2727,6 @@ function ImGui() constructor {
 	 * @return {Undefined}
 	 */
 	static Image = function(sprite, subimg, color=c_white, alpha=1, width=sprite_get_width(sprite), height=sprite_get_height(sprite)) {
-		if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) texture_set_stage(0, sprite_get_texture(sprite, subimg)); 
 		return __imgui_image(sprite, subimg, color, alpha, width, height, sprite_get_uvs(sprite, subimg));
 	}
 
@@ -2752,7 +2748,6 @@ function ImGui() constructor {
 	 * @return {Bool}
 	 */
 	static ImageButton = function(str_id, sprite, subimg, color, alpha, bg_color, bg_alpha, width=sprite_get_width(sprite), height=sprite_get_height(sprite)) {
-		if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) texture_set_stage(0, sprite_get_texture(sprite, subimg)); 
 		return __imgui_image_button(str_id, sprite, subimg, color, alpha, bg_color, bg_alpha, width, height, sprite_get_uvs(sprite, subimg));
 	}
 
@@ -5103,7 +5098,7 @@ function ImGui() constructor {
 	 * @return {Undefined}
 	 */
 	static Surface = function(surface, color=c_white, alpha=1, width=surface_get_width(surface), height=surface_get_height(surface)) {
-		var _tex = surface_get_texture(surface); if (!(ImGui.__GFlags & ImGuiGFlags.RENDERER_GM)) {texture_set_stage(0, _tex);};
+		var _tex = surface_get_texture(surface);
 		return __imgui_surface(surface, color, alpha, width, height, texture_get_uvs(_tex));
 	}
 
@@ -6491,8 +6486,6 @@ function ImGui() constructor {
 
     /// @section Internal
     /// @desc Where the (GML) magic happens, safe from code generation
-    static __imgm = __ImGM();
-
     static __state = undefined;
     static __window = undefined;
 
@@ -6518,7 +6511,6 @@ function ImGui() constructor {
     
     static __inputMapping = __imgui_create_input_mapping();
     static __cursorMapping = __imgui_create_cursor_mapping();
-    static __GFlags = IMGM_GFLAGS;
 
     static __cursorPrev = -1;
     static __inputRequested = false;
@@ -6615,8 +6607,6 @@ function ImGui() constructor {
         if !ImGui.__initialized return;
         state ??= __state; if state != __state state.Use();
 
-        ImGui.__imgm.Utils.Update();
-
         var _dwidth = display_get_width(), _dheight = display_get_height(), _focus = false;
         var _wwidth = 0, _wheight = 0;
 
@@ -6625,10 +6615,8 @@ function ImGui() constructor {
         _focus = __state.Engine.Window.HasFocus();
 
         // Check surface
-        if (ImGui.__GFlags & ImGuiGFlags.RENDERER_GM) {
-            if (!surface_exists(__state.Renderer.Surface)) {
-                __state.Renderer.Surface = surface_create(max(1, _wwidth), max(1, _wheight));
-            }
+        if (!surface_exists(__state.Renderer.Surface)) {
+            __state.Renderer.Surface = surface_create(max(1, _wwidth), max(1, _wheight));
         }
 
         if _wwidth != 0 __state.Display.Width = _wwidth;
@@ -6713,10 +6701,8 @@ function ImGui() constructor {
         if !ImGui.__initialized return;
         state ??= __state; if state != __state state.Use();
 
-        if (ImGui.__GFlags & ImGuiGFlags.RENDERER_GM) {
-            if (!surface_exists(__state.Renderer.Surface)) {
-                __state.Renderer.Surface = surface_create(max(1, __state.Display.Width), max(1, __state.Display.Height));
-            }
+        if (!surface_exists(__state.Renderer.Surface)) {
+            __state.Renderer.Surface = surface_create(max(1, __state.Display.Width), max(1, __state.Display.Height));
         }
 
         var _w = display_get_gui_width(), _h = display_get_gui_height();
@@ -6738,77 +6724,74 @@ function ImGui() constructor {
         __imgui_draw(_data);
         ImGuiExtMethodCall("__ImGui_Draw", undefined, __state, true);
 
-        if (ImGui.__GFlags & ImGuiGFlags.RENDERER_GM) {
-            
-            var cmdBuffer = __state.Renderer.CmdBuffer;
-            buffer_seek(cmdBuffer, buffer_seek_start, 0);
-            if (buffer_read(cmdBuffer, buffer_bool)) { // data->Valid
+        var cmdBuffer = __state.Renderer.CmdBuffer;
+        buffer_seek(cmdBuffer, buffer_seek_start, 0);
+        if (buffer_read(cmdBuffer, buffer_bool)) { // data->Valid
                 
-                //Cache static values for better performance inside the loop
-                var vtxBuffer = __vtxBuffer;
-                var vtxStride = __vtxFormatStride;
+            //Cache static values for better performance inside the loop
+            var vtxBuffer = __vtxBuffer;
+            var vtxStride = __vtxFormatStride;
                 
-                //Keep a copy of the current scissor state for later reset
-                var oldScissor = gpu_get_scissor();
+            //Keep a copy of the current scissor state for later reset
+            var oldScissor = gpu_get_scissor();
                 
-                surface_set_target(__state.Renderer.Surface);
-                gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_inv_src_alpha); //Pre-multiplied alpha blend mode
-                draw_clear_alpha(0, 0);
-                var list_count = buffer_read(cmdBuffer, buffer_u32);
-                for(var i = 0; i < list_count; i++) {
-                    var cmd_count = buffer_read(cmdBuffer, buffer_u32);
-                    for(var j = 0; j < cmd_count; j++) {
-                        if (!buffer_read(cmdBuffer, buffer_bool)) { // UserCallback != nullptr
-                            var tex_data = buffer_read(cmdBuffer, buffer_u32);
-                            var tex_id = -1;
-                            switch (tex_data & 0xF) {
-                                case ImGuiTextureType.Surface: {
-                                    tex_id = surface_get_texture(tex_data >> 16);
-                                    break;
-                                }
-
-                                case ImGuiTextureType.Font: {
-                                    tex_id = sprite_get_texture(__state.Display.Font, 0);
-                                    break;
-                                }
-
-                                case ImGuiTextureType.Sprite: {
-                                    tex_id = sprite_get_texture(tex_data >> 16, (tex_data >> 4) & 0xFFF);
-                                    break;
-                                }
+            surface_set_target(__state.Renderer.Surface);
+            gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_inv_src_alpha); //Pre-multiplied alpha blend mode
+            draw_clear_alpha(0, 0);
+            var list_count = buffer_read(cmdBuffer, buffer_u32);
+            for(var i = 0; i < list_count; i++) {
+                var cmd_count = buffer_read(cmdBuffer, buffer_u32);
+                for(var j = 0; j < cmd_count; j++) {
+                    if (!buffer_read(cmdBuffer, buffer_bool)) { // UserCallback != nullptr
+                        var tex_data = buffer_read(cmdBuffer, buffer_u32);
+                        var tex_id = -1;
+                        switch (tex_data & 0xF) {
+                            case ImGuiTextureType.Surface: {
+                                tex_id = surface_get_texture(tex_data >> 16);
+                                break;
                             }
 
-                            var clip_x1 = buffer_read(cmdBuffer, buffer_f32);
-                            var clip_y1 = buffer_read(cmdBuffer, buffer_f32);
-                            var clip_x2 = buffer_read(cmdBuffer, buffer_f32);
-                            var clip_y2 = buffer_read(cmdBuffer, buffer_f32);
-                            gpu_set_scissor(clip_x1, clip_y1, clip_x2 - clip_x1, clip_y2 - clip_y1);
-                            
-                            var vtx_count = buffer_read(cmdBuffer, buffer_u32);
-                            vertex_update_buffer_from_buffer(vtxBuffer, 0, cmdBuffer, buffer_tell(cmdBuffer), vtxStride*vtx_count);
-                            vertex_submit_ext(vtxBuffer, pr_trianglelist, tex_id, 0, vtx_count)
-                            
-                            buffer_seek(cmdBuffer, buffer_seek_relative, vtxStride*vtx_count);
+                            case ImGuiTextureType.Font: {
+                                tex_id = sprite_get_texture(__state.Display.Font, 0);
+                                break;
+                            }
+
+                            case ImGuiTextureType.Sprite: {
+                                tex_id = sprite_get_texture(tex_data >> 16, (tex_data >> 4) & 0xFFF);
+                                break;
+                            }
                         }
+
+                        var clip_x1 = buffer_read(cmdBuffer, buffer_f32);
+                        var clip_y1 = buffer_read(cmdBuffer, buffer_f32);
+                        var clip_x2 = buffer_read(cmdBuffer, buffer_f32);
+                        var clip_y2 = buffer_read(cmdBuffer, buffer_f32);
+                        gpu_set_scissor(clip_x1, clip_y1, clip_x2 - clip_x1, clip_y2 - clip_y1);
+                            
+                        var vtx_count = buffer_read(cmdBuffer, buffer_u32);
+                        vertex_update_buffer_from_buffer(vtxBuffer, 0, cmdBuffer, buffer_tell(cmdBuffer), vtxStride*vtx_count);
+                        vertex_submit_ext(vtxBuffer, pr_trianglelist, tex_id, 0, vtx_count)
+                            
+                        buffer_seek(cmdBuffer, buffer_seek_relative, vtxStride*vtx_count);
                     }
                 }
-                surface_reset_target();
-                gpu_set_blendmode(bm_normal);
-                gpu_set_scissor(oldScissor);
+            }
+            surface_reset_target();
+            gpu_set_blendmode(bm_normal);
+            gpu_set_scissor(oldScissor);
 
-                if _ww > 0 and _wh > 0 {
-                    if (__state.Engine.Window[$ "DrawBegin"]) {
-                        __state.Engine.Window.DrawBegin();
-                    }
-                    if (__state.Engine.Window[$ "DrawClear"]) {
-                        __state.Engine.Window.DrawClear();
-                    }
+            if _ww > 0 and _wh > 0 {
+                if (__state.Engine.Window[$ "DrawBegin"]) {
+                    __state.Engine.Window.DrawBegin();
+                }
+                if (__state.Engine.Window[$ "DrawClear"]) {
+                    __state.Engine.Window.DrawClear();
+                }
 
-                    draw_surface(__state.Renderer.Surface, 0, 0);
+                draw_surface(__state.Renderer.Surface, 0, 0);
 
-                    if (__state.Engine.Window[$ "DrawEnd"]) {
-                        __state.Engine.Window.DrawEnd();
-                    }
+                if (__state.Engine.Window[$ "DrawEnd"]) {
+                    __state.Engine.Window.DrawEnd();
                 }
             }
         }
