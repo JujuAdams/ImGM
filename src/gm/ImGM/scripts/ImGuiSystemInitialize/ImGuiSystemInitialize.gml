@@ -7,10 +7,8 @@ function ImGuiSystemInitialize(_configFlags = ImGuiConfigFlags.None)
     {
         if (__initialized) return;
         
-        var ww = new ImGuiBaseMainWindow();
-        
         var new_state = new ImGuiState();
-        new_state.Engine.Window = ww;
+        new_state.Engine.Window = new ImGuiBaseMainWindow();
         new_state.Engine.Context = ImGuiCreateContext();
         
         var inited = new_state.__Initialize(_configFlags);
