@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"ImGui_Misc",
+  "%Name":"ImGuiSystemShutdown",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ImGui_Misc",
+  "name":"ImGuiSystemShutdown",
   "parent":{
-    "name":"ImGM",
-    "path":"folders/ImGM.yy",
+    "name":"System",
+    "path":"folders/ImGM/System.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__ImGuiSystem",
+  "%Name":"__ImGuiMisc",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__ImGuiSystem",
+  "name":"__ImGuiMisc",
   "parent":{
     "name":"(Internals)",
     "path":"folders/ImGM/(Internals).yy",

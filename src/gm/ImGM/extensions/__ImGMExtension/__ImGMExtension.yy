@@ -485,8 +485,8 @@
   "optionsFile":"options.json",
   "packageId":"",
   "parent":{
-    "name":"ImGM",
-    "path":"folders/ImGM.yy",
+    "name":"(Internals)",
+    "path":"folders/ImGM/(Internals).yy",
   },
   "productId":"",
   "resourceType":"GMExtension",

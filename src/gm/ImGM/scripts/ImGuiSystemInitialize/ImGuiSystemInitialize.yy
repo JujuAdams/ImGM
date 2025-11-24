@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"__ImGuiSystem",
+  "%Name":"ImGuiSystemInitialize",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__ImGuiSystem",
+  "name":"ImGuiSystemInitialize",
   "parent":{
-    "name":"(Internals)",
-    "path":"folders/ImGM/(Internals).yy",
+    "name":"System",
+    "path":"folders/ImGM/System.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
