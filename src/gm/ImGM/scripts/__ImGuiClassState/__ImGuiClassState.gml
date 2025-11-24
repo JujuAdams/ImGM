@@ -25,7 +25,6 @@ function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
         D3DDevice: _device,
         D3DDeviceContext: _deviceContext,
         Context: ImGuiCreateContext(),
-        Window: new __ImGuiClassWindowAdaptor(),
         Time: 0,
         Framerate: game_get_speed(gamespeed_fps),
     };
@@ -39,7 +38,7 @@ function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
     
     __initialized = false;
     
-    var _initializeResult =  __imgui_initialize(Engine.Window.GetHandle(),
+    var _initializeResult =  __imgui_initialize(window_handle(),
                                                 Engine.Context,
                                                 {
                                                     D3DDevice: Engine.D3DDevice,

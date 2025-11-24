@@ -7,9 +7,9 @@ function ImGuiSystemBeginStep()
     {
         if (not __initialized) return;
         
-        var _wwidth  = __state.Engine.Window.GetWidth();
-        var _wheight = __state.Engine.Window.GetHeight();
-        var _focus   = __state.Engine.Window.HasFocus();
+        var _wwidth  = window_get_width();
+        var _wheight = window_get_height();
+        var _focus   = window_has_focus();
         
         if (surface_exists(__state.Renderer.Surface) && ((surface_get_width(__state.Renderer.Surface) != _wwidth) || (surface_get_height(__state.Renderer.Surface) != _wheight)))
         {
@@ -49,17 +49,17 @@ function ImGuiSystemBeginStep()
                 }
             }
             
-            if (_focus == true)
+            if (_focus)
             {
-                __state.Input.Mouse.X = __state.Engine.Window.MouseGetX();
-                __state.Input.Mouse.Y = __state.Engine.Window.MouseGetY();
-                for(var i = 0; i < 3; i++) __imgui_mouse(i, __state.Engine.Window.MouseCheckButton(i + 1));
-                if (__state.Engine.Window.MouseWheelUp()) __imgui_mouse_wheel(0, 1);
-                else if (__state.Engine.Window.MouseWheelDown()) __imgui_mouse_wheel(0, -1);
+                __state.Input.Mouse.X = window_mouse_get_x();
+                __state.Input.Mouse.Y = window_mouse_get_y();
+                for(var i = 0; i < 3; i++) __imgui_mouse(i, mouse_check_button(i + 1));
+                if (mouse_wheel_up()) __imgui_mouse_wheel(0, 1);
+                else if (mouse_wheel_down()) __imgui_mouse_wheel(0, -1);
 
                 var _cursor = __imgui_mouse_cursor();
                 if (_cursor != __cursorPrev) {
-                    __state.Engine.Window.SetCursor(__cursorMapping[_cursor + 1]);
+                    window_set_cursor(__cursorMapping[_cursor + 1]);
                     __cursorPrev = _cursor;
                 }
             }
