@@ -1,16 +1,5 @@
 function ImGui() constructor {
 
-    #region Extensions
-
-    /// @section Extensions
-    /// Manually-updated section for ImGui extensions.
-    static Ext = {
-        NodeEditor: new ImExtNodeEditor(),
-    }
-    /// @endSection
-
-    #endregion
-
     #region Binds
 
 	/**
@@ -6584,15 +6573,12 @@ function ImGui() constructor {
         }
         ImGui.__initialized = true;
         new_state.Use();
-		ImGuiExtMethodCall("__ImGui_Initialize", undefined, __state, true);
         return true;
     }
 
     static __Shutdown = function(state=undefined) {
         if !ImGui.__initialized return;
         state ??= __state; if state != __state state.Use();
-
-        ImGuiExtMethodCall("__ImGui_Shutdown", undefined, __state, true);
 
         if (__imgui_shutdown(__state.Engine.Context)) {
             ImGui.__initialized = false;
@@ -6669,7 +6655,6 @@ function ImGui() constructor {
 
         var _data = __state.__GetData();
         __imgui_new_frame(_data);
-        ImGuiExtMethodCall("__ImGui_NewFrame", undefined, __state, true);
 
         if (buffer_peek(__state.Renderer.FontBuffer, 0, buffer_bool)) {
             if (sprite_exists(__state.Display.Font)) sprite_delete(__state.Display.Font);
@@ -6686,7 +6671,6 @@ function ImGui() constructor {
         state ??= __state; if state != __state state.Use();
 
         __imgui_end_frame();
-        ImGuiExtMethodCall("__ImGui_EndFrame", undefined, __state, true);
     }
 
     static __Render = function(state=undefined) {
@@ -6694,7 +6678,6 @@ function ImGui() constructor {
         state ??= __state; if state != __state state.Use();
 
         __imgui_render();
-        ImGuiExtMethodCall("__ImGui_Render", undefined, __state, true);
     }
 
     static __Draw = function(state=undefined, _rescale=true) {
@@ -6722,7 +6705,6 @@ function ImGui() constructor {
 
         var _data = __state.__GetData();
         __imgui_draw(_data);
-        ImGuiExtMethodCall("__ImGui_Draw", undefined, __state, true);
 
         var cmdBuffer = __state.Renderer.CmdBuffer;
         buffer_seek(cmdBuffer, buffer_seek_start, 0);

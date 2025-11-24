@@ -8,53 +8,6 @@
 
 #endregion
 
-#region ImGM Functions
-
-/**
- * @function ImGuiExtMethodCall
- * @context ImGM
- * @desc Calls a function on a specific (or all) ImGui extension(s) with optional arguments.
- * @param [method_name] The name of the instance function in each extension class
- * @param [ext_name] Name from ImGui.Ext.<name>, or undefined for all extensions
- * @param [_args] Optional arguments to provide to the function
- * @param [if_inited=true] Call only if that extension was inited
- *
- */
-function ImGuiExtMethodCall(method_name=undefined, ext_name=undefined, _args=undefined, if_inited=true) {
-    var _ext_names = ext_name ? [ext_name] : struct_get_names(ImGui.Ext);
-    var _extname, _ext, _ext_s, _ext_m, _cond;
-
-    for (var i=0; i<array_length(_ext_names); i++) {
-        _cond = true;
-        _extname = _ext_names[i];
-        _ext = ImGui.Ext[$ _extname];
-
-        if (if_inited) {
-            _cond = false;
-            _ext_s = static_get(_ext);
-            if (_ext_s[$ "__initialized"] != undefined) {
-                if (_ext_s.__initialized) {
-                    _cond = true;
-                }
-            }
-        }
-        if (_cond) {
-            _ext_m = _ext[$ method_name];
-            if (is_method(_ext_m)) {
-                if (!is_undefined(_args)) {if (!is_array(_args)) {_args = [_args];}}
-                if (is_array(_args)) method_call(_ext_m, _args) else _ext_m();
-            }
-        }
-    }
-}
-
-
-#endregion
-
-#region ImGM Classes
-
-#endregion
-
 /**
  * @function ImGuiBaseMainWindow
  * @constructor
@@ -148,8 +101,6 @@ function ImGuiState() constructor {
 
     static __Initialize = function(wnd_or_config_flags_1=ImGuiConfigFlags.None, config_flags_2=ImGuiConfigFlags.None) {
         if __initialized return;
-
-        var _state = ImGui.__state;
 
         if self.Engine.Context == pointer_null {
             self.Engine.Context = ImGui.CreateContext();

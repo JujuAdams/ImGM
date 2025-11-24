@@ -13,10 +13,6 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"ImGM","folderPath":"folders/ImGM.yy","name":"ImGM","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/ImGM/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/ImGM/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"ImExt","folderPath":"folders/ImGM/Scripts/ImExt.yy","name":"ImExt","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"ImGui","folderPath":"folders/ImGM/Scripts/ImGui.yy","name":"ImGui","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ken's Test Framework","folderPath":"folders/Ken's Test Framework.yy","name":"Ken's Test Framework","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Ken's Test Framework/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -37,7 +33,6 @@
     {"id":{"name":"obj_ktf_stepper","path":"objects/obj_ktf_stepper/obj_ktf_stepper.yy",},},
     {"id":{"name":"oExample","path":"objects/oExample/oExample.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
-    {"id":{"name":"ImExtNodeEditor","path":"scripts/ImExtNodeEditor/ImExtNodeEditor.yy",},},
     {"id":{"name":"ImGui_Extras","path":"scripts/ImGui_Extras/ImGui_Extras.yy",},},
     {"id":{"name":"ImGui_Misc","path":"scripts/ImGui_Misc/ImGui_Misc.yy",},},
     {"id":{"name":"ImGui","path":"scripts/ImGui/ImGui.yy",},},
