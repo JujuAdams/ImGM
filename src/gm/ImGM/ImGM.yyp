@@ -34,6 +34,7 @@
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
     {"id":{"name":"__ImGuiClassState","path":"scripts/__ImGuiClassState/__ImGuiClassState.yy",},},
     {"id":{"name":"__ImGuiClassWindowAdaptor","path":"scripts/__ImGuiClassWindowAdaptor/__ImGuiClassWindowAdaptor.yy",},},
+    {"id":{"name":"__ImGuiConstants","path":"scripts/__ImGuiConstants/__ImGuiConstants.yy",},},
     {"id":{"name":"__ImGuiEnums","path":"scripts/__ImGuiEnums/__ImGuiEnums.yy",},},
     {"id":{"name":"__ImGuiFunctions","path":"scripts/__ImGuiFunctions/__ImGuiFunctions.yy",},},
     {"id":{"name":"__ImGuiMisc","path":"scripts/__ImGuiMisc/__ImGuiMisc.yy",},},

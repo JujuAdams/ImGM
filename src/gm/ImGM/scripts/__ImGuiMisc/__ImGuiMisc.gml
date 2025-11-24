@@ -1,13 +1,3 @@
-#region ImGM Macros
-
-/// Current ImGM extension version
-#macro IMGM_VERSION (extension_get_version("__ImGMExtension"))
-
-/// Initial size of grow buffers (draw and font)
-#macro IMGUI_GM_BUFFER_SIZE             1024 * 8
-
-#endregion
-
 /// @section Enums
 /// Manually-updated section for specific enums
 
