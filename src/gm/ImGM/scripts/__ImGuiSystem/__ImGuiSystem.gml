@@ -1,3 +1,4 @@
+__ImGuiSystem();
 function __ImGuiSystem()
 {
     static _system = undefined;
@@ -6,6 +7,9 @@ function __ImGuiSystem()
     _system = {};
     with(_system)
     {
+        show_debug_message("ImGui: Welcome to ImGM by Kenan Masri!");
+        show_debug_message("ImGui: This is a heavily editted version built by Juju Adams");
+        
         __initialized = false;
         
         __state = undefined;

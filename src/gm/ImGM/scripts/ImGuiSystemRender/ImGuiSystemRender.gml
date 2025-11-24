@@ -1,14 +1,11 @@
 // Feather disable all
 
-function ImGuiSystemRender(state = undefined)
+function ImGuiSystemRender()
 {
     static _system = __ImGuiSystem();
     with(_system)
     {
         if (not __initialized) return;
-        
-        state ??= __state;
-        if (state != __state) state.Use();
         
         __imgui_render();
         
@@ -17,8 +14,7 @@ function ImGuiSystemRender(state = undefined)
             __state.Renderer.Surface = surface_create(max(1, __state.Display.Width), max(1, __state.Display.Height));
         }
         
-        var _data = __state.__GetData();
-        __imgui_draw(_data);
+        __imgui_draw(__state);
         
         var cmdBuffer = __state.Renderer.CmdBuffer;
         buffer_seek(cmdBuffer, buffer_seek_start, 0);

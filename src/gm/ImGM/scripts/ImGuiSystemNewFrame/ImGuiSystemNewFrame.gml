@@ -1,14 +1,11 @@
 // Feather disable all
 
-function ImGuiSystemNewFrame(state = undefined)
+function ImGuiSystemNewFrame()
 {
     static _system = __ImGuiSystem();
     with(_system)
     {
         if (not __initialized) return;
-    
-        state ??= __state;
-        if (state != __state) state.Use();
         
         var _wwidth  = __state.Engine.Window.GetWidth();
         var _wheight = __state.Engine.Window.GetHeight();
@@ -67,9 +64,8 @@ function ImGuiSystemNewFrame(state = undefined)
                 }
             }
         }
-
-        var _data = __state.__GetData();
-        __imgui_new_frame(_data);
+        
+        __imgui_new_frame(__state);
 
         if (buffer_peek(__state.Renderer.FontBuffer, 0, buffer_bool))
         {

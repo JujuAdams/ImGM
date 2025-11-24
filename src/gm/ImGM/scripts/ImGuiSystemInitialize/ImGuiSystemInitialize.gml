@@ -7,32 +7,19 @@ function ImGuiSystemInitialize(_configFlags = ImGuiConfigFlags.None)
     {
         if (__initialized) return;
         
-        var new_state = new ImGuiState();
-        new_state.Engine.Window = new ImGuiBaseMainWindow();
-        new_state.Engine.Context = ImGuiCreateContext();
-        
-        var inited = new_state.__Initialize(_configFlags);
-        
-        if ((inited == pointer_null) || (inited == undefined))
+        var _newState = new ImGuiState(_configFlags);
+        if (_newState.__initialized)
         {
-            ImGuiDestroyContext(__state.Engine.Context);
-            __state.Engine.Context = pointer_null;
+            __state = _newState;
+            ImGuiSetCurrentContext(_newState.Engine.Context);
             
-            buffer_delete(__state.Renderer.CmdBuffer);
-            __state.Renderer.CmdBuffer = -1;
+            __initialized = true;
             
-            buffer_delete(__state.Renderer.FontBuffer);
-            __state.Renderer.FontBuffer = -1;
-            
-            __initialized = false;
-            return false;
+            return true;
         }
         else
         {
-            new_state.Use();
-            
-            __initialized = true;
-            return true;
+            return false;
         }
     }
 }
