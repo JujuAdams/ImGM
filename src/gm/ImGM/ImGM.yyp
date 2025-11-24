@@ -30,7 +30,6 @@
     {"id":{"name":"ImGM","path":"extensions/ImGM/ImGM.yy",},},
     {"id":{"name":"oExample","path":"objects/oExample/oExample.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
-    {"id":{"name":"ImGui_Extras","path":"scripts/ImGui_Extras/ImGui_Extras.yy",},},
     {"id":{"name":"ImGui_Misc","path":"scripts/ImGui_Misc/ImGui_Misc.yy",},},
     {"id":{"name":"ImGui","path":"scripts/ImGui/ImGui.yy",},},
   ],
