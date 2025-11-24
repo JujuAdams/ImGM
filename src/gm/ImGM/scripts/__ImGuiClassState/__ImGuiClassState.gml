@@ -30,8 +30,8 @@ function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
     };
     
     Renderer = {
-        CmdBuffer: buffer_create(IMGUI_GM_BUFFER_SIZE, buffer_grow, 1),
-        FontBuffer: buffer_create(IMGUI_GM_BUFFER_SIZE, buffer_grow, 1),
+        CmdBuffer: buffer_create(__IMGUI_GM_BUFFER_SIZE, buffer_grow, 1),
+        FontBuffer: buffer_create(__IMGUI_GM_BUFFER_SIZE, buffer_grow, 1),
         Surface: -1,
         UpdateFont: true,
     };

@@ -19,10 +19,10 @@ function ImGuiSystemBeginStep()
         if (not surface_exists(__state.Renderer.Surface))
         {
             __state.Renderer.Surface = surface_create(max(1, _wwidth), max(1, _wheight));
+            __state.Display.Width  = surface_get_width(__state.Renderer.Surface);
+            __state.Display.Height = surface_get_height(__state.Renderer.Surface);
         }
 
-        if _wwidth != 0 __state.Display.Width = _wwidth;
-        if _wheight != 0 __state.Display.Height = _wheight;
         __state.Engine.Time = delta_time / 1_000_000;
         __state.Engine.Framerate = game_get_speed(gamespeed_fps);
 

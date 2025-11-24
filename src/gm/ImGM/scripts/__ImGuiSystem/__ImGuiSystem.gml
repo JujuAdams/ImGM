@@ -25,8 +25,8 @@ function __ImGuiSystem()
         vertex_begin(__vtxBuffer, __vtxFormat);
         vertex_end(__vtxBuffer);
         
-        __inputMapping  = __imgui_create_input_mapping();
-        __cursorMapping = __imgui_create_cursor_mapping();
+        __inputMapping  = __ImGuiCreateKeyboardMapping();
+        __cursorMapping = __ImGuiCreateCursorMapping();
         
         __cursorPrev = -1;
         __inputRequested = false;
