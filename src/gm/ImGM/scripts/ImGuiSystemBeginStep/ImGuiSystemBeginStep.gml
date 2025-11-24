@@ -1,24 +1,30 @@
 // Feather disable all
 
-function ImGuiSystemBeginStep()
+/// @param surfaceWidth
+/// @param surfaceHeight
+/// @param mouseX
+/// @param mouseY
+/// @param [hasFocus]
+/// @param [keyboardFunc]
+/// @param [mouseFunc]
+/// @param [mouseWheelDelta]
+/// @param [cursorFunc]
+
+function ImGuiSystemBeginStep(_surfaceWidth, _surfaceHeight, _mouseX, _mouseY, _hasFocus = window_has_focus(), _keyboardFunc = keyboard_check_direct, _mouseFunc = mouse_check_button, _mouseWheelDelta = mouse_wheel_up() - mouse_wheel_down(), _cursorFunc = window_set_cursor)
 {
     static _system = __ImGuiSystem();
     with(_system)
     {
         if (not __initialized) return;
         
-        var _wwidth  = window_get_width();
-        var _wheight = window_get_height();
-        var _focus   = window_has_focus();
-        
-        if (surface_exists(__state.Renderer.Surface) && ((surface_get_width(__state.Renderer.Surface) != _wwidth) || (surface_get_height(__state.Renderer.Surface) != _wheight)))
+        if (surface_exists(__state.Renderer.Surface) && ((surface_get_width(__state.Renderer.Surface) != _surfaceWidth) || (surface_get_height(__state.Renderer.Surface) != _surfaceHeight)))
         {
             surface_free(__state.Renderer.Surface);
         }
         
         if (not surface_exists(__state.Renderer.Surface))
         {
-            __state.Renderer.Surface = surface_create(max(1, _wwidth), max(1, _wheight));
+            __state.Renderer.Surface = surface_create(max(1, _surfaceWidth), max(1, _surfaceHeight));
             __state.Display.Width  = surface_get_width(__state.Renderer.Surface);
             __state.Display.Height = surface_get_height(__state.Renderer.Surface);
         }
@@ -26,40 +32,58 @@ function ImGuiSystemBeginStep()
         __state.Engine.Time = delta_time / 1_000_000;
         __state.Engine.Framerate = game_get_speed(gamespeed_fps);
 
-        if ((_wwidth > 0 && _wheight > 0)) {
-            for(var i = ImGuiKey.NamedKey_BEGIN; i < ImGuiKey.NamedKey_END; i++) {
-                var key = __inputMapping[i];
+        if ((_surfaceWidth > 0) && (_surfaceHeight > 0))
+        {
+            var _inputMappingArray = __inputMapping;
+            for(var i = ImGuiKey.NamedKey_BEGIN; i < ImGuiKey.NamedKey_END; i++)
+            {
+                var key = _inputMappingArray[i];
                 if (key > -1) __imgui_key(i, keyboard_check_direct(key));
             }
+            
             __imgui_key(ImGuiKey.ImGuiMod_Ctrl, keyboard_check_direct(vk_lcontrol));
             __imgui_key(ImGuiKey.ImGuiMod_Shift, keyboard_check_direct(vk_lshift));
             __imgui_key(ImGuiKey.ImGuiMod_Alt, keyboard_check_direct(vk_lalt));
 
-            if (__imgui_want_text_input(undefined)) {
-                if (!__inputRequested) {
+            if (__imgui_want_text_input(undefined))
+            {
+                if (!__inputRequested)
+                {
                     __inputRequested = true;
                     __inputStore = keyboard_string;
                     keyboard_string = "";
                 }
-                if (__imgui_input(keyboard_string)) keyboard_string = "";
-            } else {
-                if (__inputRequested) {
+                
+                if (__imgui_input(keyboard_string))
+                {
+                    keyboard_string = "";
+                }
+            }
+            else
+            {
+                if (__inputRequested)
+                {
                     keyboard_string = __inputStore;
                     __inputRequested = false;
                 }
             }
             
-            if (_focus)
+            if (_hasFocus)
             {
-                __state.Input.Mouse.X = window_mouse_get_x();
-                __state.Input.Mouse.Y = window_mouse_get_y();
-                for(var i = 0; i < 3; i++) __imgui_mouse(i, mouse_check_button(i + 1));
-                if (mouse_wheel_up()) __imgui_mouse_wheel(0, 1);
-                else if (mouse_wheel_down()) __imgui_mouse_wheel(0, -1);
+                __state.Input.Mouse.X = _mouseX;
+                __state.Input.Mouse.Y = _mouseY;
+                
+                for(var i = 0; i < 3; i++)
+                {
+                    __imgui_mouse(i, _mouseFunc(i + 1));
+                }
+                
+                __imgui_mouse_wheel(0, _mouseWheelDelta);
 
                 var _cursor = __imgui_mouse_cursor();
-                if (_cursor != __cursorPrev) {
-                    window_set_cursor(__cursorMapping[_cursor + 1]);
+                if (_cursor != __cursorPrev)
+                {
+                    _cursorFunc(__cursorMapping[_cursor + 1]);
                     __cursorPrev = _cursor;
                 }
             }

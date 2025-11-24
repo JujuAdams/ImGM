@@ -419,7 +419,7 @@ enum ImGuiConfigFlags {
 	NoMouseCursorChange = 1 << 5,
 	NoKeyboard = 1 << 6,
 	DockingEnable = 1 << 7,
-	ViewportsEnable = 1 << 10,
+	//ViewportsEnable = 1 << 10, //Unsupported
 	IsSRGB = 1 << 20,
 	IsTouchScreen = 1 << 21,
 	NavEnableSetMousePos = 1 << 2,
