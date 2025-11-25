@@ -30,7 +30,8 @@
   "resources":[
     {"id":{"name":"__ImGMExtension","path":"extensions/__ImGMExtension/__ImGMExtension.yy",},},
     {"id":{"name":"__objImGMManager","path":"objects/__objImGMManager/__objImGMManager.yy",},},
-    {"id":{"name":"oExample","path":"objects/oExample/oExample.yy",},},
+    {"id":{"name":"oExampleGUIspace","path":"objects/oExampleGUIspace/oExampleGUIspace.yy",},},
+    {"id":{"name":"oExampleRoomspace","path":"objects/oExampleRoomspace/oExampleRoomspace.yy",},},
     {"id":{"name":"oExampleTwoContexts","path":"objects/oExampleTwoContexts/oExampleTwoContexts.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
     {"id":{"name":"__ImGMError","path":"scripts/__ImGMError/__ImGMError.yy",},},
