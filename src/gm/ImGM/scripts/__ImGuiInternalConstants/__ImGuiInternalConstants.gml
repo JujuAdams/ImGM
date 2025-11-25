@@ -1,4 +1,6 @@
-#macro __IMGUI_GM_BUFFER_SIZE  (8*1024)
+#macro __IMGM_BUFFER_SIZE  (8*1024)
+
+#macro __IMGM_WINDOW_EDGE  1
 
 /// @section Enums
 /// Manually-updated section for specific enums

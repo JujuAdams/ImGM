@@ -34,6 +34,7 @@
     {"id":{"name":"oExampleTwoContexts","path":"objects/oExampleTwoContexts/oExampleTwoContexts.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
     {"id":{"name":"__ImGMError","path":"scripts/__ImGMError/__ImGMError.yy",},},
+    {"id":{"name":"__ImGMTrace","path":"scripts/__ImGMTrace/__ImGMTrace.yy",},},
     {"id":{"name":"__ImGMWarning","path":"scripts/__ImGMWarning/__ImGMWarning.yy",},},
     {"id":{"name":"__ImGuiConstants","path":"scripts/__ImGuiConstants/__ImGuiConstants.yy",},},
     {"id":{"name":"__ImGuiCreateCursorMapping","path":"scripts/__ImGuiCreateCursorMapping/__ImGuiCreateCursorMapping.yy",},},

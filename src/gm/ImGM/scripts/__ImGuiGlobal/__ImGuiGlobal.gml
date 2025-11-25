@@ -7,8 +7,9 @@ function __ImGuiGlobal()
     _global = {};
     with(_global)
     {
-        show_debug_message("ImGM: Welcome to ImGM by Kenan Masri!");
-        show_debug_message("ImGM: This is a heavily editted version built by Juju Adams");
+        __ImGMTrace("Welcome to ImGM by Kenan Masri!");
+        __ImGMTrace("ImGM is an implementation of ImGui by Omar Cornut. It is also based on prior work in GameMaker by Nommiin");
+        __ImGMTrace("This particular version is heavily editted by Juju Adams");
         
         __currentFrameContext = undefined;
         
