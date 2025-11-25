@@ -2,6 +2,10 @@
 
 #macro IMGM_VERSION  (extension_get_version("__ImGMExtension"))
 
+#macro IMGM_RUNNING_FROM_IDE  (GM_build_type == "run")
+
+#macro IMGM_WINDOW_EDGE  1
+
 /**
  * @enum ImGuiReturnMask
  * @context ImGM

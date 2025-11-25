@@ -5,10 +5,22 @@
 /// @param right
 /// @param bottom
 /// @param [configFlags]
+/// @param [configFlagsUnset]
+/// 
+/// `.GetInitialized()`
+/// `.Destroy()`
+/// `.FrameStart()`
+/// `.FrameEnd()`
+/// `.Draw()`
+/// `.SetRegion()`
+/// `.GetPointInside()`
+/// `.GetCursor()`
+/// `.UpdateSurface()`
+/// `.GetSurface()`
 
-function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFlags.None) constructor
+function ImGuiContext(_left, _top, _right, _bottom, _configFlagsSet = ImGuiConfigFlags.None, _configFlagsUnset = ImGuiConfigFlags.None) constructor
 {
-    static _system = __ImGuiSystem();
+    static _global = __ImGuiGlobal();
     
     Display = {
         Width: 1,
@@ -41,6 +53,7 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
     __cursor = cr_default;
     __left = 0;
     __top = 0;
+    __surfaceDirty = true;
     
     SetRegion(_left, _top, _right, _bottom);
     
@@ -49,12 +62,13 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
     var _initializeResult =  __imgui_initialize(window_handle(),
                                                 Engine.Context,
                                                 {
-                                                    GFlags: 3, //Force GameMaker native rendering. Magic number derived from old enum
+                                                    ConfigFlagsOverrideSet: _configFlagsSet,
+                                                    ConfigFlagsOverrideClear: _configFlagsUnset,
                                                     
-                                                    ConfigFlagsOverrideSet: _configFlags,
-                                                    ConfigFlagsOverrideClear: ImGuiConfigFlags.None,
+                                                    //Force GameMaker native rendering. Magic number derived from old enum
+                                                    GFlags: 3,
                                                     
-                                                    //Unused because we're using native rendering
+                                                    //Unused because we're forcing native rendering
                                                     D3DDevice: pointer_null,
                                                     D3DDeviceContext: pointer_null,
                                                 });
@@ -84,25 +98,34 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
         Display.Height = 1 + _bottom - _top;
     }
     
-    static SetContextToThis = function()
+    static GetPointInside = function(_x, _y)
     {
-        if (not __initialized) return;
-        
-        ImGuiSetCurrentContext(Engine.Context);
+        return point_in_rectangle(_x, _y, __left, __top, __left + Display.Width - 1, __top + Display.Height - 1);
     }
     
-    static BeginStep = function(_mouseX, _mouseY, _hasFocus = true, _setOSCursor = true, _keyboardFunc = keyboard_check, _mouseFunc = mouse_check_button)
+    static FrameStart = function(_mouseX, _mouseY, _setOSCursor = true, _hasFocus = true)
     {
         if (not __initialized) return;
         
+        if (_global.__currentFrameContext != undefined)
+        {
+            __ImGMError("Cannot start a new frame, the previous frame has not been ended");
+        }
+        
+        _global.__currentFrameContext = self;
         ImGuiSetCurrentContext(Engine.Context);
-
+        
+        __surfaceDirty = true;
+        
         Engine.Time = delta_time / 1_000_000;
         Engine.Framerate = game_get_speed(gamespeed_fps);
 
         if ((Display.Width > 0) && (Display.Height > 0))
         {
-            var _inputMappingArray = _system.__inputMapping;
+            var _keyboardFunc = keyboard_check; //TODO - Maybe one day expose this
+            
+            //TODO - Should keyboard collection be inside a focus check?
+            var _inputMappingArray = _global.__inputMapping;
             for(var i = ImGuiKey.NamedKey_BEGIN; i < ImGuiKey.NamedKey_END; i++)
             {
                 var key = _inputMappingArray[i];
@@ -112,32 +135,35 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
             __imgui_key(ImGuiKey.ImGuiMod_Ctrl,  _keyboardFunc(vk_lcontrol));
             __imgui_key(ImGuiKey.ImGuiMod_Shift, _keyboardFunc(vk_lshift));
             __imgui_key(ImGuiKey.ImGuiMod_Alt,   _keyboardFunc(vk_lalt) || _keyboardFunc(vk_ralt));
-
-            if (__imgui_want_text_input(undefined))
-            {
-                if (not _system.__inputRequested)
-                {
-                    _system.__inputRequested = true;
-                    _system.__inputStore = keyboard_string;
-                    keyboard_string = "";
-                }
-                
-                if (__imgui_input(keyboard_string))
-                {
-                    keyboard_string = "";
-                }
-            }
-            else
-            {
-                if (_system.__inputRequested)
-                {
-                    keyboard_string = _system.__inputStore;
-                    _system.__inputRequested = false;
-                }
-            }
             
             if (_hasFocus && window_has_focus())
             {
+                var _mouseFunc = mouse_check_button; //TODO - Maybe one day expose this
+                
+                //FIXME - Almost certainly breaks with multiple contexts
+                if (__imgui_want_text_input(undefined))
+                {
+                    if (not _global.__inputRequested)
+                    {
+                        _global.__inputRequested = true;
+                        _global.__inputStore = keyboard_string;
+                        keyboard_string = "";
+                    }
+                    
+                    if (__imgui_input(keyboard_string))
+                    {
+                        keyboard_string = "";
+                    }
+                }
+                else
+                {
+                    if (_global.__inputRequested)
+                    {
+                        keyboard_string = _global.__inputStore;
+                        _global.__inputRequested = false;
+                    }
+                }
+                
                 Input.Mouse.X = _mouseX - __left;
                 Input.Mouse.Y = _mouseY - __top;
                 
@@ -146,10 +172,14 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
                 __imgui_mouse(2, _mouseFunc(mb_middle));
                 
                 __imgui_mouse_wheel(0, mouse_wheel_up() - mouse_wheel_down());
-
-                __cursor = _system.__cursorMapping[__imgui_mouse_cursor() + 1];
                 
-                if (_setOSCursor)
+                __cursor = _global.__cursorMapping[__imgui_mouse_cursor() + 1];
+                
+                if (_setOSCursor && point_in_rectangle(display_mouse_get_x(), display_mouse_get_y(),
+                                                       window_get_x() + IMGM_WINDOW_EDGE,
+                                                       window_get_y() + IMGM_WINDOW_EDGE,
+                                                       window_get_x() + window_get_width() - IMGM_WINDOW_EDGE,
+                                                       window_get_y() + window_get_height() - IMGM_WINDOW_EDGE))
                 {
                     window_set_cursor(__cursor);
                 }
@@ -169,17 +199,44 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
         }
     }
     
-    static EndStep = function()
+    static FrameEnd = function()
     {
         if (not __initialized) return;
         
-        ImGuiSetCurrentContext(Engine.Context);
+        if (_global.__currentFrameContext != self)
+        {
+            __ImGMError("Cannot end this context's frame, it has not been started");
+        }
+        
+        _global.__currentFrameContext = undefined;
+        
         __imgui_end_frame();
     }
     
-    static PreDraw = function()
+    static Draw = function()
     {
         if (not __initialized) return;
+        
+        if (__surfaceDirty)
+        {
+            UpdateSurface();
+        }
+        
+        gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_inv_src_alpha); //Pre-multiplied alpha blend mode
+        draw_surface(GetSurface(), __left, __top);
+        gpu_set_blendmode(bm_normal);
+    }
+    
+    static GetCursor = function()
+    {
+        return __cursor;
+    }
+    
+    static UpdateSurface = function()
+    {
+        if (not __initialized) return;
+        
+        __surfaceDirty = false;
         
         ImGuiSetCurrentContext(Engine.Context);
         __imgui_render();
@@ -190,8 +247,8 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
         if (buffer_read(cmdBuffer, buffer_bool))
         {
             //Cache static values for better performance inside the loop
-            var vtxBuffer = _system.__vtxBuffer;
-            var vtxStride = _system.__vtxFormatStride;
+            var vtxBuffer = _global.__vtxBuffer;
+            var vtxStride = _global.__vtxFormatStride;
             
             //Keep a copy of the current scissor state for later reset
             var oldScissor = gpu_get_scissor();
@@ -252,11 +309,6 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
         }
     }
     
-    static GetCursor = function()
-    {
-        return __cursor;
-    }
-    
     static GetSurface = function()
     {
         if (not __initialized) return -1;
@@ -277,15 +329,6 @@ function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFl
         }
         
         return _surface;
-    }
-    
-    static Draw = function()
-    {
-        if (not __initialized) return;
-        
-        gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_inv_src_alpha); //Pre-multiplied alpha blend mode
-        draw_surface(GetSurface(), __left, __top);
-        gpu_set_blendmode(bm_normal);
     }
     
     static Destroy = function()

@@ -1,4 +1,4 @@
-display_set_gui_size(window_get_width(), window_get_height());
+// Feather disable all
 
-context.BeginStep(window_get_width(), window_get_height(),
-                  window_mouse_get_x(), window_mouse_get_y());
+context.SetRegion(0, 0, window_get_width(), window_get_height());
+context.FrameStart(window_mouse_get_x(), window_mouse_get_y());

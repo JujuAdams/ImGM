@@ -1,3 +1,5 @@
 // Feather disable all
 
-draw_surface(context.GetSurface(), 0, 0);
+display_set_gui_size(window_get_width(), window_get_height());
+
+context.Draw();
