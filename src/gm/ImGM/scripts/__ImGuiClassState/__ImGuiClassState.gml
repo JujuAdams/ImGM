@@ -2,11 +2,6 @@
 
 function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
 {
-    var _osInfo = os_get_info();
-    var _device = _osInfo[? "video_d3d11_device"];
-    var _deviceContext = _osInfo[? "video_d3d11_context"];
-    ds_map_destroy(_osInfo);
-    
     Display = {
         Width: display_get_width(),
         Height: display_get_height(),
@@ -22,8 +17,6 @@ function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
     };
     
     Engine = {
-        D3DDevice: _device,
-        D3DDeviceContext: _deviceContext,
         Context: ImGuiCreateContext(),
         Time: 0,
         Framerate: game_get_speed(gamespeed_fps),
@@ -41,11 +34,14 @@ function __ImGuiClassState(_configFlags = ImGuiConfigFlags.None) constructor
     var _initializeResult =  __imgui_initialize(window_handle(),
                                                 Engine.Context,
                                                 {
-                                                    D3DDevice: Engine.D3DDevice,
-                                                    D3DDeviceContext: Engine.D3DDeviceContext,
-                                                    GFlags: 3, //Magic number derived from old enum
+                                                    GFlags: 3, //Force GameMaker native rendering. Magic number derived from old enum
+                                                    
                                                     ConfigFlagsOverrideSet: _configFlags,
                                                     ConfigFlagsOverrideClear: ImGuiConfigFlags.None,
+                                                    
+                                                    //Unused because we're using native rendering
+                                                    D3DDevice: pointer_null,
+                                                    D3DDeviceContext: pointer_null,
                                                 });
     
     if ((_initializeResult != pointer_null) && (_initializeResult != undefined))

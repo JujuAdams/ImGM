@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ImGuiContext",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ImGuiContext",
+  "parent":{
+    "name":"ImGui",
+    "path":"folders/ImGui.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
