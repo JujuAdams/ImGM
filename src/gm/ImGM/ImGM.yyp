@@ -32,7 +32,6 @@
     {"id":{"name":"oExample","path":"objects/oExample/oExample.yy",},},
     {"id":{"name":"oExampleTwoContexts","path":"objects/oExampleTwoContexts/oExampleTwoContexts.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
-    {"id":{"name":"__ImGuiClassState","path":"scripts/__ImGuiClassState/__ImGuiClassState.yy",},},
     {"id":{"name":"__ImGuiConstants","path":"scripts/__ImGuiConstants/__ImGuiConstants.yy",},},
     {"id":{"name":"__ImGuiCreateCursorMapping","path":"scripts/__ImGuiCreateCursorMapping/__ImGuiCreateCursorMapping.yy",},},
     {"id":{"name":"__ImGuiCreateKeyboardMapping","path":"scripts/__ImGuiCreateKeyboardMapping/__ImGuiCreateKeyboardMapping.yy",},},
