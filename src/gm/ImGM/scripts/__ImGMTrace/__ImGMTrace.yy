@@ -6,7 +6,7 @@
   "name":"__ImGMTrace",
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGui/(Internals).yy",
+    "path":"folders/ImGM/(Internals).yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

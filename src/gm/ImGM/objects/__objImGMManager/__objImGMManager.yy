@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGui/(Internals).yy",
+    "path":"folders/ImGM/(Internals).yy",
   },
   "parentObjectId":null,
   "persistent":true,

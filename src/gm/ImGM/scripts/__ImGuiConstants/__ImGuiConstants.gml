@@ -1,5 +1,8 @@
 // Feather disable all
 
+#macro IMGM_EDIT_VERSION  "0.1.0"
+#macro IMGM_EDIT_DATE     "2025-11-25"
+
 #macro IMGM_VERSION  (extension_get_version("__ImGMExtension"))
 
 #macro IMGM_RUNNING_FROM_IDE  (GM_build_type == "run")

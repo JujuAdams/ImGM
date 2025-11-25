@@ -12,8 +12,8 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"ImGui","folderPath":"folders/ImGui.yy","name":"ImGui","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"(Internals)","folderPath":"folders/ImGui/(Internals).yy","name":"(Internals)","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"ImGM","folderPath":"folders/ImGM.yy","name":"ImGM","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"(Internals)","folderPath":"folders/ImGM/(Internals).yy","name":"(Internals)","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[

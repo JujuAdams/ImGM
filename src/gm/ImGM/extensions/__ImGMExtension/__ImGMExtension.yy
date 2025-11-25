@@ -14,7 +14,7 @@
   "copyToTargets":64,
   "description":"",
   "exportToGame":true,
-  "extensionVersion":"0.0.4",
+  "extensionVersion":"0.0.3",
   "files":[
     {"$GMExtensionFile":"v1","%Name":"","constants":[],"copyToTargets":-1,"filename":"imgm.dll","final":"","functions":[
         {"$GMExtensionFunction":"","%Name":"__imgui_initialize","argCount":0,"args":[],"documentation":"/// @function __imgui_initialize(info)\r\n/// @argument {ds_map} info - Operating system info","externalName":"__imgui_initialize","help":"","hidden":false,"kind":1,"name":"__imgui_initialize","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
@@ -486,7 +486,7 @@
   "packageId":"",
   "parent":{
     "name":"(Internals)",
-    "path":"folders/ImGui/(Internals).yy",
+    "path":"folders/ImGM/(Internals).yy",
   },
   "productId":"",
   "resourceType":"GMExtension",
