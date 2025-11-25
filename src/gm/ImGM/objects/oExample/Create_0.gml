@@ -1,1 +1,1 @@
-ImGuiSystemInitialize(ImGuiConfigFlags.DockingEnable);
+context = new ImGuiContext(window_get_width(), window_get_height(), ImGuiConfigFlags.DockingEnable);

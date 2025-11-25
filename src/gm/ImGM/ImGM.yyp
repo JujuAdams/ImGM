@@ -14,7 +14,6 @@
   "Folders":[
     {"$GMFolder":"","%Name":"ImGui","folderPath":"folders/ImGui.yy","name":"ImGui","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"(Internals)","folderPath":"folders/ImGui/(Internals).yy","name":"(Internals)","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"System","folderPath":"folders/ImGui/System.yy","name":"System","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
@@ -31,7 +30,6 @@
   "resources":[
     {"id":{"name":"__ImGMExtension","path":"extensions/__ImGMExtension/__ImGMExtension.yy",},},
     {"id":{"name":"oExample","path":"objects/oExample/oExample.yy",},},
-    {"id":{"name":"oExampleContext","path":"objects/oExampleContext/oExampleContext.yy",},},
     {"id":{"name":"oExampleTwoContexts","path":"objects/oExampleTwoContexts/oExampleTwoContexts.yy",},},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
     {"id":{"name":"__ImGuiClassState","path":"scripts/__ImGuiClassState/__ImGuiClassState.yy",},},
@@ -42,12 +40,6 @@
     {"id":{"name":"__ImGuiInternalConstants","path":"scripts/__ImGuiInternalConstants/__ImGuiInternalConstants.yy",},},
     {"id":{"name":"__ImGuiSystem","path":"scripts/__ImGuiSystem/__ImGuiSystem.yy",},},
     {"id":{"name":"ImGuiContext","path":"scripts/ImGuiContext/ImGuiContext.yy",},},
-    {"id":{"name":"ImGuiSystemBeginStep","path":"scripts/ImGuiSystemBeginStep/ImGuiSystemBeginStep.yy",},},
-    {"id":{"name":"ImGuiSystemEndStep","path":"scripts/ImGuiSystemEndStep/ImGuiSystemEndStep.yy",},},
-    {"id":{"name":"ImGuiSystemFinalize","path":"scripts/ImGuiSystemFinalize/ImGuiSystemFinalize.yy",},},
-    {"id":{"name":"ImGuiSystemGetSurface","path":"scripts/ImGuiSystemGetSurface/ImGuiSystemGetSurface.yy",},},
-    {"id":{"name":"ImGuiSystemInitialize","path":"scripts/ImGuiSystemInitialize/ImGuiSystemInitialize.yy",},},
-    {"id":{"name":"ImGuiSystemPreDraw","path":"scripts/ImGuiSystemPreDraw/ImGuiSystemPreDraw.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

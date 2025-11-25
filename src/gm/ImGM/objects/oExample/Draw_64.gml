@@ -1,3 +1,3 @@
 // Feather disable all
 
-draw_surface(ImGuiSystemGetSurface(), 0, 0);
+draw_surface(context.GetSurface(), 0, 0);
