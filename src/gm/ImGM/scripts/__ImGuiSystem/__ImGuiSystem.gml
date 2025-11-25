@@ -28,7 +28,6 @@ function __ImGuiSystem()
         __inputMapping  = __ImGuiCreateKeyboardMapping();
         __cursorMapping = __ImGuiCreateCursorMapping();
         
-        __cursorPrev     = -1;
         __inputRequested = false;
         __inputStore     = undefined;
     }

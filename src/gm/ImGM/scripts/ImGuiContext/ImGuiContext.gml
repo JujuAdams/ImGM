@@ -1,15 +1,18 @@
 // Feather disable all
 
-/// @param width
-/// @param height
+/// @param left
+/// @param top
+/// @param right
+/// @param bottom
+/// @param [configFlags]
 
-function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) constructor
+function ImGuiContext(_left, _top, _right, _bottom, _configFlags = ImGuiConfigFlags.None) constructor
 {
     static _system = __ImGuiSystem();
     
     Display = {
-        Width: _width,
-        Height: _height,
+        Width: 1,
+        Height: 1,
         Scale: 1,
         Font: -1,
     };
@@ -35,6 +38,11 @@ function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) con
     };
     
     __initialized = false;
+    __cursor = cr_default;
+    __left = 0;
+    __top = 0;
+    
+    SetRegion(_left, _top, _right, _bottom);
     
     
     
@@ -67,30 +75,43 @@ function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) con
         return __initialized;
     }
     
-    static BeginStep = function(_surfaceWidth, _surfaceHeight, _mouseX, _mouseY, _hasFocus = window_has_focus(), _keyboardFunc = keyboard_check_direct, _mouseFunc = mouse_check_button, _mouseWheelDelta = mouse_wheel_up() - mouse_wheel_down(), _cursorFunc = window_set_cursor)
+    static SetRegion = function(_left, _top, _right, _bottom)
+    {
+        __left = _left;
+        __top  = _top;
+        
+        Display.Width  = 1 + _right - _left;
+        Display.Height = 1 + _bottom - _top;
+    }
+    
+    static SetContextToThis = function()
     {
         if (not __initialized) return;
         
         ImGuiSetCurrentContext(Engine.Context);
+    }
+    
+    static BeginStep = function(_mouseX, _mouseY, _hasFocus = true, _setOSCursor = true, _keyboardFunc = keyboard_check, _mouseFunc = mouse_check_button)
+    {
+        if (not __initialized) return;
         
-        Display.Width  = _surfaceWidth;
-        Display.Height = _surfaceHeight;
+        ImGuiSetCurrentContext(Engine.Context);
 
         Engine.Time = delta_time / 1_000_000;
         Engine.Framerate = game_get_speed(gamespeed_fps);
 
-        if ((_surfaceWidth > 0) && (_surfaceHeight > 0))
+        if ((Display.Width > 0) && (Display.Height > 0))
         {
             var _inputMappingArray = _system.__inputMapping;
             for(var i = ImGuiKey.NamedKey_BEGIN; i < ImGuiKey.NamedKey_END; i++)
             {
                 var key = _inputMappingArray[i];
-                if (key > -1) __imgui_key(i, keyboard_check_direct(key));
+                if (key > -1) __imgui_key(i, _keyboardFunc(key));
             }
             
-            __imgui_key(ImGuiKey.ImGuiMod_Ctrl, keyboard_check_direct(vk_lcontrol));
-            __imgui_key(ImGuiKey.ImGuiMod_Shift, keyboard_check_direct(vk_lshift));
-            __imgui_key(ImGuiKey.ImGuiMod_Alt, keyboard_check_direct(vk_lalt));
+            __imgui_key(ImGuiKey.ImGuiMod_Ctrl,  _keyboardFunc(vk_lcontrol));
+            __imgui_key(ImGuiKey.ImGuiMod_Shift, _keyboardFunc(vk_lshift));
+            __imgui_key(ImGuiKey.ImGuiMod_Alt,   _keyboardFunc(vk_lalt) || _keyboardFunc(vk_ralt));
 
             if (__imgui_want_text_input(undefined))
             {
@@ -115,23 +136,22 @@ function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) con
                 }
             }
             
-            if (_hasFocus)
+            if (_hasFocus && window_has_focus())
             {
-                Input.Mouse.X = _mouseX;
-                Input.Mouse.Y = _mouseY;
+                Input.Mouse.X = _mouseX - __left;
+                Input.Mouse.Y = _mouseY - __top;
                 
-                for(var i = 0; i < 3; i++)
-                {
-                    __imgui_mouse(i, _mouseFunc(i + 1));
-                }
+                __imgui_mouse(0, _mouseFunc(mb_left));
+                __imgui_mouse(1, _mouseFunc(mb_right));
+                __imgui_mouse(2, _mouseFunc(mb_middle));
                 
-                __imgui_mouse_wheel(0, _mouseWheelDelta);
+                __imgui_mouse_wheel(0, mouse_wheel_up() - mouse_wheel_down());
 
-                var _cursor = __imgui_mouse_cursor();
-                if (_cursor != _system.__cursorPrev)
+                __cursor = _system.__cursorMapping[__imgui_mouse_cursor() + 1];
+                
+                if (_setOSCursor)
                 {
-                    _cursorFunc(_system.__cursorMapping[_cursor + 1]);
-                    _system.__cursorPrev = _cursor;
+                    window_set_cursor(__cursor);
                 }
             }
         }
@@ -232,6 +252,11 @@ function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) con
         }
     }
     
+    static GetCursor = function()
+    {
+        return __cursor;
+    }
+    
     static GetSurface = function()
     {
         if (not __initialized) return -1;
@@ -252,6 +277,15 @@ function ImGuiContext(_width, _height, _configFlags = ImGuiConfigFlags.None) con
         }
         
         return _surface;
+    }
+    
+    static Draw = function()
+    {
+        if (not __initialized) return;
+        
+        gpu_set_blendmode_ext_sepalpha(bm_src_alpha, bm_inv_src_alpha, bm_one, bm_inv_src_alpha); //Pre-multiplied alpha blend mode
+        draw_surface(GetSurface(), __left, __top);
+        gpu_set_blendmode(bm_normal);
     }
     
     static Destroy = function()
