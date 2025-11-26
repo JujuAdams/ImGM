@@ -1,5 +1,5 @@
-#include <imgm.h>
-#include "wrappers/imgui_gm_windowclass.h"
+#include "imgm.h"
+#include "imgui_gm_windowclass.h"
 
 ImGuiWindowClass* g_ImGuiWindowClass = nullptr;
 
