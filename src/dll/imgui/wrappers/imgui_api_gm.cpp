@@ -1,4 +1,4 @@
-#include "../imgm.h"
+#include "imgm.h"
 
 /// <summary>
 /// General API functions

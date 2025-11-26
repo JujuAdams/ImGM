@@ -1,4 +1,4 @@
-#include "../imgm.h"
+#include "imgm.h"
 #include "imgui_gm_fontconfig.h"
 
 GMFUNC(__imgui_get_font) {
