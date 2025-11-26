@@ -10,9 +10,11 @@ static bool g_ImGuiInitialized = false;
 char g_InputBuf[INPUT_SIZE];
 RValue g_Copy;
 
+#ifdef _MSC_VER
 ID3D11Device* g_pd3dDevice;
 ID3D11DeviceContext* g_pd3dDeviceContext;
 ID3D11ShaderResourceView* g_pView;
+#endif
 
 ImGuiGFlags g_ImGuiGFlags;
 int g_KeepAlive;
@@ -57,8 +59,10 @@ GMFUNC(__imgui_initialize) {
 	}
 
 	RValue* rvalue;
+#ifdef _MSC_VER
 	g_pd3dDevice = (ID3D11Device*)(YYStructGetMember(info, "D3DDevice")->ptr);
 	g_pd3dDeviceContext = (ID3D11DeviceContext*)(YYStructGetMember(info, "D3DDeviceContext")->ptr);
+#endif
 	if (g_ImGuiGFlags == NULL) {
 		g_ImGuiGFlags = YYStructGetMember(info, "GFlags")->asReal();
 	}
@@ -97,6 +101,7 @@ GMFUNC(__imgui_initialize) {
 	}
 
 	bool ok = true;
+#ifdef _MSC_VER
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_WIN32) { ok = ImGui_ImplWin32_Init(window_handle); };
 	if (ok) { if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) { ok = ImGui_ImplDX11_Init(g_pd3dDevice, g_pd3dDeviceContext); } }
 	else {
@@ -104,16 +109,21 @@ GMFUNC(__imgui_initialize) {
 		Result.ptr = nullptr;
 		return;
 	}
+#endif
 	if (ok) { if (g_ImGuiGFlags & ImGuiGFlags_IMPL_GM) { ok = ImGui_ImplGM_Init(window_handle); } }
 	else {
+#ifdef _MSC_VER
 		if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) ImGui_ImplDX11_Shutdown();
+#endif
 		io.ConfigFlags = configFlagsPrev;
 		Result.ptr = nullptr;
 		return;
 	};
 	if (!ok) {
+#ifdef _MSC_VER
 		if (g_ImGuiGFlags & ImGuiGFlags_IMPL_WIN32) ImGui_ImplWin32_Shutdown();
 		if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) ImGui_ImplDX11_Shutdown();
+#endif
 		io.ConfigFlags = configFlagsPrev;
 		Result.ptr = nullptr;
 		return;
@@ -136,13 +146,17 @@ GMFUNC(__imgui_shutdown) {
 
 	ImGuiIO& io = ImGui::GetIO();
 
+#ifdef _MSC_VER
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) ImGui_ImplDX11_Shutdown();
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_WIN32) ImGui_ImplWin32_Shutdown();
+#endif
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_GM) ImGui_ImplGM_Shutdown();
 
 	g_ImGuiInitialized = false;
+#ifdef _MSC_VER
 	g_pd3dDevice = NULL;
 	g_pd3dDeviceContext = NULL;
+#endif
 
 	DestroyDsMap(g_KeepAlive);
 
@@ -173,8 +187,10 @@ GMFUNC(__imgui_new_frame) {
 		UpdateStateFromStruct(state, StateUpdateFlags_DisplaySize | StateUpdateFlags_Framerate | StateUpdateFlags_Time);
 	}
 
+#ifdef _MSC_VER
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_WIN32) ImGui_ImplWin32_NewFrame();
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) ImGui_ImplDX11_NewFrame();
+#endif
 	if (g_ImGuiGFlags & ImGuiGFlags_IMPL_GM) {
 		UpdateStateFromStruct(state, StateUpdateFlags_All);
 		ImGui_ImplGM_NewFrame();
@@ -221,8 +237,10 @@ GMFUNC(__imgui_draw) {
 		UpdateStateFromStruct(state, StateUpdateFlags_Renderer);
 		ImGui_ImplGM_RenderDrawData(g_ImDrawData);
 
+#ifdef _MSC_VER
 	} else if (g_ImGuiGFlags & ImGuiGFlags_IMPL_DX11) {
 		ImGui_ImplDX11_RenderDrawData(g_ImDrawData);
+#endif
 
 	} else {
 		ShowError("No ImGui renderer set.");

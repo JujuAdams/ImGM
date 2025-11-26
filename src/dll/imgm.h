@@ -5,10 +5,7 @@
 
 #include <imgui.h>
 #include <imgui_internal.h>
-#include <backends/imgui_impl_dx11.h>
-#include <backends/imgui_impl_win32.h>
 #include <imgui_impl_gm.h>
-#include <d3d11.h>
 #include <vector>
 
 // Modifiers for brief (see Wrapper.js)
@@ -21,12 +18,14 @@
 #define GMRETURN(...) /**/
 #define GMRETURNS(...) /**/
 #define GMHINT(...) /**/
-#ifdef OS_Windows
-#define GMEXPORT __declspec(dllexport)
-#elif OS_Linux
-#define GMEXPORT __attribute__((visibility("default")))
-#elif OS_Mac
-#define GMEXPORT extern "C"
+
+#ifdef _MSC_VER
+#define GMEXPORT __declspec(dllexport) //Windows
+#include <backends/imgui_impl_dx11.h>
+#include <backends/imgui_impl_win32.h>
+#include <d3d11.h>
+#else
+#define GMEXPORT __attribute__((visibility("default"))) //MacOS and Linux
 #endif
 
 #define GMFUNC(name) GMEXPORT void name(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -151,15 +150,20 @@ enum ImGuiGFlags_ {
 };
 
 extern ImGuiGFlags g_ImGuiGFlags;
+#ifdef _MSC_VER
 extern ID3D11Device* g_pd3dDevice;
 extern ID3D11DeviceContext* g_pd3dDeviceContext;
 extern ID3D11ShaderResourceView* g_pView;
+#endif
 
 inline ImTextureID GetTexture(int id, int subimg, TextureType type) {
-	if (g_ImGuiGFlags & ImGuiGFlags_RENDERER_GM) {
-		return (ImTextureID)(((((uintptr_t)id << 12) | (uintptr_t)subimg) << 4) | (uintptr_t)type);
-	}
-	g_pd3dDeviceContext->PSGetShaderResources(0, 1, &g_pView);
-	g_pd3dDeviceContext->VSSetShaderResources(0, 1, &g_pView);
-	return (ImTextureID)g_pView;
+#ifdef _MSC_VER
+    if !(g_ImGuiGFlags & ImGuiGFlags_RENDERER_GM) {
+        g_pd3dDeviceContext->PSGetShaderResources(0, 1, &g_pView);
+        g_pd3dDeviceContext->VSSetShaderResources(0, 1, &g_pView);
+        return (ImTextureID)g_pView;
+    }
+#else
+    return (ImTextureID)(((((uintptr_t)id << 12) | (uintptr_t)subimg) << 4) | (uintptr_t)type);
+#endif
 }
