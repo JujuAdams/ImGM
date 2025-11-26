@@ -58,7 +58,7 @@ slider_int = 0;
 slider_int2 = [];
 slider_int3 = [];
 slider_int4 = [];
-slider_intn = [];
+slider_intn = [0, 2, 3, 5, 7, 11];
 slider_float = 0.0;
 slider_angle = pi;
 
