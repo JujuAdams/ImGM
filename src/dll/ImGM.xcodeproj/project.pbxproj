@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D167A4F92ED789D400708453 /* gm.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A49B2ED789D400708453 /* gm.h */; };
+		D167A4FA2ED789D400708453 /* Ref.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A49C2ED789D400708453 /* Ref.h */; };
+		D167A4FB2ED789D400708453 /* YYRunnerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A49D2ED789D400708453 /* YYRunnerInterface.h */; };
+		D167A4FC2ED789D400708453 /* YYRValue.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A49E2ED789D400708453 /* YYRValue.h */; };
+		D167A4FD2ED789D400708453 /* YYStd.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A49F2ED789D400708453 /* YYStd.h */; };
+		D167A4FE2ED789D400708453 /* crude_json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4A22ED789D400708453 /* crude_json.cpp */; };
+		D167A4FF2ED789D400708453 /* crude_json.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4A32ED789D400708453 /* crude_json.h */; };
+		D167A5002ED789D400708453 /* imgui_bezier_math.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4A42ED789D400708453 /* imgui_bezier_math.h */; };
+		D167A5012ED789D400708453 /* imgui_canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4A62ED789D400708453 /* imgui_canvas.cpp */; };
+		D167A5022ED789D400708453 /* imgui_canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4A72ED789D400708453 /* imgui_canvas.h */; };
+		D167A5032ED789D400708453 /* imgui_extra_math.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4A82ED789D400708453 /* imgui_extra_math.h */; };
+		D167A5042ED789D400708453 /* imgui_node_editor_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4AA2ED789D400708453 /* imgui_node_editor_api.cpp */; };
+		D167A5052ED789D400708453 /* imgui_node_editor_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4AB2ED789D400708453 /* imgui_node_editor_internal.h */; };
+		D167A5062ED789D400708453 /* imgui_node_editor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4AD2ED789D400708453 /* imgui_node_editor.cpp */; };
+		D167A5072ED789D400708453 /* imgui_node_editor.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4AE2ED789D400708453 /* imgui_node_editor.h */; };
+		D167A5082ED789D400708453 /* imgm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4B22ED789D400708453 /* imgm.cpp */; };
+		D167A5092ED789D400708453 /* crude_json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4B32ED789D400708453 /* crude_json.cpp */; };
+		D167A50A2ED789D400708453 /* crude_json.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4B42ED789D400708453 /* crude_json.h */; };
+		D167A50B2ED789D400708453 /* imgui_bezier_math.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4B52ED789D400708453 /* imgui_bezier_math.h */; };
+		D167A50C2ED789D400708453 /* imgui_canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4B72ED789D400708453 /* imgui_canvas.cpp */; };
+		D167A50D2ED789D400708453 /* imgui_canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4B82ED789D400708453 /* imgui_canvas.h */; };
+		D167A50E2ED789D400708453 /* imgui_extra_math.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4B92ED789D400708453 /* imgui_extra_math.h */; };
+		D167A50F2ED789D400708453 /* imgui_node_editor_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4BB2ED789D400708453 /* imgui_node_editor_api.cpp */; };
+		D167A5102ED789D400708453 /* imgui_node_editor_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4BC2ED789D400708453 /* imgui_node_editor_internal.h */; };
+		D167A5112ED789D400708453 /* imgui_node_editor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4BE2ED789D400708453 /* imgui_node_editor.cpp */; };
+		D167A5122ED789D400708453 /* imgui_node_editor.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4BF2ED789D400708453 /* imgui_node_editor.h */; };
+		D167A5132ED789D400708453 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4C22ED789D400708453 /* config.h */; };
+		D167A5182ED789D400708453 /* imconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4C82ED789D400708453 /* imconfig.h */; };
+		D167A5192ED789D400708453 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4C92ED789D400708453 /* imgui_demo.cpp */; };
+		D167A51A2ED789D400708453 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4CA2ED789D400708453 /* imgui_draw.cpp */; };
+		D167A51B2ED789D400708453 /* imgui_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4CB2ED789D400708453 /* imgui_internal.h */; };
+		D167A51C2ED789D400708453 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4CC2ED789D400708453 /* imgui_tables.cpp */; };
+		D167A51D2ED789D400708453 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4CD2ED789D400708453 /* imgui_widgets.cpp */; };
+		D167A51E2ED789D400708453 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4CE2ED789D400708453 /* imgui.cpp */; };
+		D167A51F2ED789D400708453 /* imgui.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4CF2ED789D400708453 /* imgui.h */; };
+		D167A5202ED789D400708453 /* imstb_rectpack.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4D02ED789D400708453 /* imstb_rectpack.h */; };
+		D167A5212ED789D400708453 /* imstb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4D12ED789D400708453 /* imstb_textedit.h */; };
+		D167A5222ED789D400708453 /* imstb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4D22ED789D400708453 /* imstb_truetype.h */; };
+		D167A5232ED789D400708453 /* imgui_api_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D42ED789D400708453 /* imgui_api_gm.cpp */; };
+		D167A5242ED789D400708453 /* imgui_color_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D52ED789D400708453 /* imgui_color_gm.cpp */; };
+		D167A5252ED789D400708453 /* imgui_combo_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D62ED789D400708453 /* imgui_combo_gm.cpp */; };
+		D167A5262ED789D400708453 /* imgui_docking_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D72ED789D400708453 /* imgui_docking_gm.cpp */; };
+		D167A5272ED789D400708453 /* imgui_drag_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D82ED789D400708453 /* imgui_drag_gm.cpp */; };
+		D167A5282ED789D400708453 /* imgui_drawlist_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4D92ED789D400708453 /* imgui_drawlist_gm.cpp */; };
+		D167A5292ED789D400708453 /* imgui_ext_memeditor_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4DA2ED789D400708453 /* imgui_ext_memeditor_gm.cpp */; };
+		D167A52A2ED789D400708453 /* imgui_fonts_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4DB2ED789D400708453 /* imgui_fonts_gm.cpp */; };
+		D167A52B2ED789D400708453 /* imgui_gm_fontconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4DC2ED789D400708453 /* imgui_gm_fontconfig.h */; };
+		D167A52C2ED789D400708453 /* imgui_gm_selectionstorage.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4DD2ED789D400708453 /* imgui_gm_selectionstorage.h */; };
+		D167A52D2ED789D400708453 /* imgui_gm_windowclass.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4DE2ED789D400708453 /* imgui_gm_windowclass.h */; };
+		D167A52E2ED789D400708453 /* imgui_input_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4DF2ED789D400708453 /* imgui_input_gm.cpp */; };
+		D167A52F2ED789D400708453 /* imgui_input_widgets_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E02ED789D400708453 /* imgui_input_widgets_gm.cpp */; };
+		D167A5302ED789D400708453 /* imgui_layout_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E12ED789D400708453 /* imgui_layout_gm.cpp */; };
+		D167A5312ED789D400708453 /* imgui_listbox_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E22ED789D400708453 /* imgui_listbox_gm.cpp */; };
+		D167A5322ED789D400708453 /* imgui_memory_editor.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4E32ED789D400708453 /* imgui_memory_editor.h */; };
+		D167A5332ED789D400708453 /* imgui_menu_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E42ED789D400708453 /* imgui_menu_gm.cpp */; };
+		D167A5342ED789D400708453 /* imgui_payload_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E52ED789D400708453 /* imgui_payload_gm.cpp */; };
+		D167A5352ED789D400708453 /* imgui_plots_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E62ED789D400708453 /* imgui_plots_gm.cpp */; };
+		D167A5362ED789D400708453 /* imgui_popup_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E72ED789D400708453 /* imgui_popup_gm.cpp */; };
+		D167A5372ED789D400708453 /* imgui_selectable_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E82ED789D400708453 /* imgui_selectable_gm.cpp */; };
+		D167A5382ED789D400708453 /* imgui_slider_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4E92ED789D400708453 /* imgui_slider_gm.cpp */; };
+		D167A5392ED789D400708453 /* imgui_style_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4EA2ED789D400708453 /* imgui_style_gm.cpp */; };
+		D167A53A2ED789D400708453 /* imgui_table_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4EB2ED789D400708453 /* imgui_table_gm.cpp */; };
+		D167A53B2ED789D400708453 /* imgui_tabs_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4EC2ED789D400708453 /* imgui_tabs_gm.cpp */; };
+		D167A53C2ED789D400708453 /* imgui_text_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4ED2ED789D400708453 /* imgui_text_gm.cpp */; };
+		D167A53D2ED789D400708453 /* imgui_tooltips_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4EE2ED789D400708453 /* imgui_tooltips_gm.cpp */; };
+		D167A53E2ED789D400708453 /* imgui_tree_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4EF2ED789D400708453 /* imgui_tree_gm.cpp */; };
+		D167A53F2ED789D400708453 /* imgui_widgets_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4F02ED789D400708453 /* imgui_widgets_gm.cpp */; };
+		D167A5402ED789D400708453 /* imgui_window_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4F12ED789D400708453 /* imgui_window_gm.cpp */; };
+		D167A5412ED789D400708453 /* imgui_impl_gm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4F42ED789D400708453 /* imgui_impl_gm.cpp */; };
+		D167A5422ED789D400708453 /* imgui_impl_gm.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4F52ED789D400708453 /* imgui_impl_gm.h */; };
+		D167A5432ED789D400708453 /* imgm.h in Headers */ = {isa = PBXBuildFile; fileRef = D167A4F72ED789D400708453 /* imgm.h */; };
+		D167A5442ED789D400708453 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D167A4F82ED789D400708453 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D167A48D2ED7894100708453 /* libImGM.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libImGM.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D167A49B2ED789D400708453 /* gm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gm.h; sourceTree = "<group>"; };
+		D167A49C2ED789D400708453 /* Ref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ref.h; sourceTree = "<group>"; };
+		D167A49D2ED789D400708453 /* YYRunnerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYRunnerInterface.h; sourceTree = "<group>"; };
+		D167A49E2ED789D400708453 /* YYRValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYRValue.h; sourceTree = "<group>"; };
+		D167A49F2ED789D400708453 /* YYStd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStd.h; sourceTree = "<group>"; };
+		D167A4A12ED789D400708453 /* dll.sln */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dll.sln; sourceTree = "<group>"; };
+		D167A4A22ED789D400708453 /* crude_json.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = crude_json.cpp; sourceTree = "<group>"; };
+		D167A4A32ED789D400708453 /* crude_json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crude_json.h; sourceTree = "<group>"; };
+		D167A4A42ED789D400708453 /* imgui_bezier_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_bezier_math.h; sourceTree = "<group>"; };
+		D167A4A52ED789D400708453 /* imgui_bezier_math.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_bezier_math.inl; sourceTree = "<group>"; };
+		D167A4A62ED789D400708453 /* imgui_canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_canvas.cpp; sourceTree = "<group>"; };
+		D167A4A72ED789D400708453 /* imgui_canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_canvas.h; sourceTree = "<group>"; };
+		D167A4A82ED789D400708453 /* imgui_extra_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_extra_math.h; sourceTree = "<group>"; };
+		D167A4A92ED789D400708453 /* imgui_extra_math.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_extra_math.inl; sourceTree = "<group>"; };
+		D167A4AA2ED789D400708453 /* imgui_node_editor_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_node_editor_api.cpp; sourceTree = "<group>"; };
+		D167A4AB2ED789D400708453 /* imgui_node_editor_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_node_editor_internal.h; sourceTree = "<group>"; };
+		D167A4AC2ED789D400708453 /* imgui_node_editor_internal.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_node_editor_internal.inl; sourceTree = "<group>"; };
+		D167A4AD2ED789D400708453 /* imgui_node_editor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_node_editor.cpp; sourceTree = "<group>"; };
+		D167A4AE2ED789D400708453 /* imgui_node_editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_node_editor.h; sourceTree = "<group>"; };
+		D167A4B22ED789D400708453 /* imgm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgm.cpp; sourceTree = "<group>"; };
+		D167A4B32ED789D400708453 /* crude_json.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = crude_json.cpp; sourceTree = "<group>"; };
+		D167A4B42ED789D400708453 /* crude_json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crude_json.h; sourceTree = "<group>"; };
+		D167A4B52ED789D400708453 /* imgui_bezier_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_bezier_math.h; sourceTree = "<group>"; };
+		D167A4B62ED789D400708453 /* imgui_bezier_math.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_bezier_math.inl; sourceTree = "<group>"; };
+		D167A4B72ED789D400708453 /* imgui_canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_canvas.cpp; sourceTree = "<group>"; };
+		D167A4B82ED789D400708453 /* imgui_canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_canvas.h; sourceTree = "<group>"; };
+		D167A4B92ED789D400708453 /* imgui_extra_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_extra_math.h; sourceTree = "<group>"; };
+		D167A4BA2ED789D400708453 /* imgui_extra_math.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_extra_math.inl; sourceTree = "<group>"; };
+		D167A4BB2ED789D400708453 /* imgui_node_editor_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_node_editor_api.cpp; sourceTree = "<group>"; };
+		D167A4BC2ED789D400708453 /* imgui_node_editor_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_node_editor_internal.h; sourceTree = "<group>"; };
+		D167A4BD2ED789D400708453 /* imgui_node_editor_internal.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imgui_node_editor_internal.inl; sourceTree = "<group>"; };
+		D167A4BE2ED789D400708453 /* imgui_node_editor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_node_editor.cpp; sourceTree = "<group>"; };
+		D167A4BF2ED789D400708453 /* imgui_node_editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_node_editor.h; sourceTree = "<group>"; };
+		D167A4C22ED789D400708453 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		D167A4C82ED789D400708453 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
+		D167A4C92ED789D400708453 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_demo.cpp; sourceTree = "<group>"; };
+		D167A4CA2ED789D400708453 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
+		D167A4CB2ED789D400708453 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
+		D167A4CC2ED789D400708453 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
+		D167A4CD2ED789D400708453 /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets.cpp; sourceTree = "<group>"; };
+		D167A4CE2ED789D400708453 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
+		D167A4CF2ED789D400708453 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
+		D167A4D02ED789D400708453 /* imstb_rectpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_rectpack.h; sourceTree = "<group>"; };
+		D167A4D12ED789D400708453 /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
+		D167A4D22ED789D400708453 /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_truetype.h; sourceTree = "<group>"; };
+		D167A4D42ED789D400708453 /* imgui_api_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_api_gm.cpp; sourceTree = "<group>"; };
+		D167A4D52ED789D400708453 /* imgui_color_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_color_gm.cpp; sourceTree = "<group>"; };
+		D167A4D62ED789D400708453 /* imgui_combo_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_combo_gm.cpp; sourceTree = "<group>"; };
+		D167A4D72ED789D400708453 /* imgui_docking_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_docking_gm.cpp; sourceTree = "<group>"; };
+		D167A4D82ED789D400708453 /* imgui_drag_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_drag_gm.cpp; sourceTree = "<group>"; };
+		D167A4D92ED789D400708453 /* imgui_drawlist_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_drawlist_gm.cpp; sourceTree = "<group>"; };
+		D167A4DA2ED789D400708453 /* imgui_ext_memeditor_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_ext_memeditor_gm.cpp; sourceTree = "<group>"; };
+		D167A4DB2ED789D400708453 /* imgui_fonts_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_fonts_gm.cpp; sourceTree = "<group>"; };
+		D167A4DC2ED789D400708453 /* imgui_gm_fontconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_gm_fontconfig.h; sourceTree = "<group>"; };
+		D167A4DD2ED789D400708453 /* imgui_gm_selectionstorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_gm_selectionstorage.h; sourceTree = "<group>"; };
+		D167A4DE2ED789D400708453 /* imgui_gm_windowclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_gm_windowclass.h; sourceTree = "<group>"; };
+		D167A4DF2ED789D400708453 /* imgui_input_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_input_gm.cpp; sourceTree = "<group>"; };
+		D167A4E02ED789D400708453 /* imgui_input_widgets_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_input_widgets_gm.cpp; sourceTree = "<group>"; };
+		D167A4E12ED789D400708453 /* imgui_layout_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_layout_gm.cpp; sourceTree = "<group>"; };
+		D167A4E22ED789D400708453 /* imgui_listbox_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_listbox_gm.cpp; sourceTree = "<group>"; };
+		D167A4E32ED789D400708453 /* imgui_memory_editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_memory_editor.h; sourceTree = "<group>"; };
+		D167A4E42ED789D400708453 /* imgui_menu_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_menu_gm.cpp; sourceTree = "<group>"; };
+		D167A4E52ED789D400708453 /* imgui_payload_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_payload_gm.cpp; sourceTree = "<group>"; };
+		D167A4E62ED789D400708453 /* imgui_plots_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_plots_gm.cpp; sourceTree = "<group>"; };
+		D167A4E72ED789D400708453 /* imgui_popup_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_popup_gm.cpp; sourceTree = "<group>"; };
+		D167A4E82ED789D400708453 /* imgui_selectable_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_selectable_gm.cpp; sourceTree = "<group>"; };
+		D167A4E92ED789D400708453 /* imgui_slider_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_slider_gm.cpp; sourceTree = "<group>"; };
+		D167A4EA2ED789D400708453 /* imgui_style_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_style_gm.cpp; sourceTree = "<group>"; };
+		D167A4EB2ED789D400708453 /* imgui_table_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_table_gm.cpp; sourceTree = "<group>"; };
+		D167A4EC2ED789D400708453 /* imgui_tabs_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tabs_gm.cpp; sourceTree = "<group>"; };
+		D167A4ED2ED789D400708453 /* imgui_text_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_text_gm.cpp; sourceTree = "<group>"; };
+		D167A4EE2ED789D400708453 /* imgui_tooltips_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tooltips_gm.cpp; sourceTree = "<group>"; };
+		D167A4EF2ED789D400708453 /* imgui_tree_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tree_gm.cpp; sourceTree = "<group>"; };
+		D167A4F02ED789D400708453 /* imgui_widgets_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets_gm.cpp; sourceTree = "<group>"; };
+		D167A4F12ED789D400708453 /* imgui_window_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_window_gm.cpp; sourceTree = "<group>"; };
+		D167A4F32ED789D400708453 /* config.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = config.js; sourceTree = "<group>"; };
+		D167A4F42ED789D400708453 /* imgui_impl_gm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_gm.cpp; sourceTree = "<group>"; };
+		D167A4F52ED789D400708453 /* imgui_impl_gm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_gm.h; sourceTree = "<group>"; };
+		D167A4F72ED789D400708453 /* imgm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgm.h; sourceTree = "<group>"; };
+		D167A4F82ED789D400708453 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D167A48B2ED7894100708453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D167A4842ED7894100708453 = {
+			isa = PBXGroup;
+			children = (
+				D167A4C22ED789D400708453 /* config.h */,
+				D167A4A12ED789D400708453 /* dll.sln */,
+				D167A4B12ED789D400708453 /* imext */,
+				D167A4B22ED789D400708453 /* imgm.cpp */,
+				D167A4F72ED789D400708453 /* imgm.h */,
+				D167A4F62ED789D400708453 /* imgui */,
+				D167A4A02ED789D400708453 /* internal */,
+				D167A4F82ED789D400708453 /* main.cpp */,
+				D167A4C12ED789D400708453 /* node-editor */,
+				D167A48E2ED7894100708453 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D167A48E2ED7894100708453 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D167A48D2ED7894100708453 /* libImGM.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D167A4A02ED789D400708453 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				D167A49B2ED789D400708453 /* gm.h */,
+				D167A49C2ED789D400708453 /* Ref.h */,
+				D167A49D2ED789D400708453 /* YYRunnerInterface.h */,
+				D167A49E2ED789D400708453 /* YYRValue.h */,
+				D167A49F2ED789D400708453 /* YYStd.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		D167A4AF2ED789D400708453 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4A22ED789D400708453 /* crude_json.cpp */,
+				D167A4A32ED789D400708453 /* crude_json.h */,
+				D167A4A42ED789D400708453 /* imgui_bezier_math.h */,
+				D167A4A52ED789D400708453 /* imgui_bezier_math.inl */,
+				D167A4A62ED789D400708453 /* imgui_canvas.cpp */,
+				D167A4A72ED789D400708453 /* imgui_canvas.h */,
+				D167A4A82ED789D400708453 /* imgui_extra_math.h */,
+				D167A4A92ED789D400708453 /* imgui_extra_math.inl */,
+				D167A4AA2ED789D400708453 /* imgui_node_editor_api.cpp */,
+				D167A4AB2ED789D400708453 /* imgui_node_editor_internal.h */,
+				D167A4AC2ED789D400708453 /* imgui_node_editor_internal.inl */,
+				D167A4AD2ED789D400708453 /* imgui_node_editor.cpp */,
+				D167A4AE2ED789D400708453 /* imgui_node_editor.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		D167A4B02ED789D400708453 /* node-editor */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4AF2ED789D400708453 /* internal */,
+			);
+			path = "node-editor";
+			sourceTree = "<group>";
+		};
+		D167A4B12ED789D400708453 /* imext */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4B02ED789D400708453 /* node-editor */,
+			);
+			path = imext;
+			sourceTree = "<group>";
+		};
+		D167A4C02ED789D400708453 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4B32ED789D400708453 /* crude_json.cpp */,
+				D167A4B42ED789D400708453 /* crude_json.h */,
+				D167A4B52ED789D400708453 /* imgui_bezier_math.h */,
+				D167A4B62ED789D400708453 /* imgui_bezier_math.inl */,
+				D167A4B72ED789D400708453 /* imgui_canvas.cpp */,
+				D167A4B82ED789D400708453 /* imgui_canvas.h */,
+				D167A4B92ED789D400708453 /* imgui_extra_math.h */,
+				D167A4BA2ED789D400708453 /* imgui_extra_math.inl */,
+				D167A4BB2ED789D400708453 /* imgui_node_editor_api.cpp */,
+				D167A4BC2ED789D400708453 /* imgui_node_editor_internal.h */,
+				D167A4BD2ED789D400708453 /* imgui_node_editor_internal.inl */,
+				D167A4BE2ED789D400708453 /* imgui_node_editor.cpp */,
+				D167A4BF2ED789D400708453 /* imgui_node_editor.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		D167A4C12ED789D400708453 /* node-editor */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4C02ED789D400708453 /* internal */,
+			);
+			name = "node-editor";
+			path = "imext/node-editor";
+			sourceTree = "<group>";
+		};
+		D167A4D32ED789D400708453 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4C82ED789D400708453 /* imconfig.h */,
+				D167A4C92ED789D400708453 /* imgui_demo.cpp */,
+				D167A4CA2ED789D400708453 /* imgui_draw.cpp */,
+				D167A4CB2ED789D400708453 /* imgui_internal.h */,
+				D167A4CC2ED789D400708453 /* imgui_tables.cpp */,
+				D167A4CD2ED789D400708453 /* imgui_widgets.cpp */,
+				D167A4CE2ED789D400708453 /* imgui.cpp */,
+				D167A4CF2ED789D400708453 /* imgui.h */,
+				D167A4D02ED789D400708453 /* imstb_rectpack.h */,
+				D167A4D12ED789D400708453 /* imstb_textedit.h */,
+				D167A4D22ED789D400708453 /* imstb_truetype.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		D167A4F22ED789D400708453 /* wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4D42ED789D400708453 /* imgui_api_gm.cpp */,
+				D167A4D52ED789D400708453 /* imgui_color_gm.cpp */,
+				D167A4D62ED789D400708453 /* imgui_combo_gm.cpp */,
+				D167A4D72ED789D400708453 /* imgui_docking_gm.cpp */,
+				D167A4D82ED789D400708453 /* imgui_drag_gm.cpp */,
+				D167A4D92ED789D400708453 /* imgui_drawlist_gm.cpp */,
+				D167A4DA2ED789D400708453 /* imgui_ext_memeditor_gm.cpp */,
+				D167A4DB2ED789D400708453 /* imgui_fonts_gm.cpp */,
+				D167A4DC2ED789D400708453 /* imgui_gm_fontconfig.h */,
+				D167A4DD2ED789D400708453 /* imgui_gm_selectionstorage.h */,
+				D167A4DE2ED789D400708453 /* imgui_gm_windowclass.h */,
+				D167A4DF2ED789D400708453 /* imgui_input_gm.cpp */,
+				D167A4E02ED789D400708453 /* imgui_input_widgets_gm.cpp */,
+				D167A4E12ED789D400708453 /* imgui_layout_gm.cpp */,
+				D167A4E22ED789D400708453 /* imgui_listbox_gm.cpp */,
+				D167A4E32ED789D400708453 /* imgui_memory_editor.h */,
+				D167A4E42ED789D400708453 /* imgui_menu_gm.cpp */,
+				D167A4E52ED789D400708453 /* imgui_payload_gm.cpp */,
+				D167A4E62ED789D400708453 /* imgui_plots_gm.cpp */,
+				D167A4E72ED789D400708453 /* imgui_popup_gm.cpp */,
+				D167A4E82ED789D400708453 /* imgui_selectable_gm.cpp */,
+				D167A4E92ED789D400708453 /* imgui_slider_gm.cpp */,
+				D167A4EA2ED789D400708453 /* imgui_style_gm.cpp */,
+				D167A4EB2ED789D400708453 /* imgui_table_gm.cpp */,
+				D167A4EC2ED789D400708453 /* imgui_tabs_gm.cpp */,
+				D167A4ED2ED789D400708453 /* imgui_text_gm.cpp */,
+				D167A4EE2ED789D400708453 /* imgui_tooltips_gm.cpp */,
+				D167A4EF2ED789D400708453 /* imgui_tree_gm.cpp */,
+				D167A4F02ED789D400708453 /* imgui_widgets_gm.cpp */,
+				D167A4F12ED789D400708453 /* imgui_window_gm.cpp */,
+			);
+			path = wrappers;
+			sourceTree = "<group>";
+		};
+		D167A4F62ED789D400708453 /* imgui */ = {
+			isa = PBXGroup;
+			children = (
+				D167A4D32ED789D400708453 /* internal */,
+				D167A4F22ED789D400708453 /* wrappers */,
+				D167A4F32ED789D400708453 /* config.js */,
+				D167A4F42ED789D400708453 /* imgui_impl_gm.cpp */,
+				D167A4F52ED789D400708453 /* imgui_impl_gm.h */,
+			);
+			path = imgui;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D167A4892ED7894100708453 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D167A4FA2ED789D400708453 /* Ref.h in Headers */,
+				D167A5202ED789D400708453 /* imstb_rectpack.h in Headers */,
+				D167A5212ED789D400708453 /* imstb_textedit.h in Headers */,
+				D167A5072ED789D400708453 /* imgui_node_editor.h in Headers */,
+				D167A5132ED789D400708453 /* config.h in Headers */,
+				D167A52D2ED789D400708453 /* imgui_gm_windowclass.h in Headers */,
+				D167A5432ED789D400708453 /* imgm.h in Headers */,
+				D167A52C2ED789D400708453 /* imgui_gm_selectionstorage.h in Headers */,
+				D167A50B2ED789D400708453 /* imgui_bezier_math.h in Headers */,
+				D167A52B2ED789D400708453 /* imgui_gm_fontconfig.h in Headers */,
+				D167A4FC2ED789D400708453 /* YYRValue.h in Headers */,
+				D167A5102ED789D400708453 /* imgui_node_editor_internal.h in Headers */,
+				D167A5422ED789D400708453 /* imgui_impl_gm.h in Headers */,
+				D167A5022ED789D400708453 /* imgui_canvas.h in Headers */,
+				D167A4F92ED789D400708453 /* gm.h in Headers */,
+				D167A5222ED789D400708453 /* imstb_truetype.h in Headers */,
+				D167A5052ED789D400708453 /* imgui_node_editor_internal.h in Headers */,
+				D167A5122ED789D400708453 /* imgui_node_editor.h in Headers */,
+				D167A51B2ED789D400708453 /* imgui_internal.h in Headers */,
+				D167A4FB2ED789D400708453 /* YYRunnerInterface.h in Headers */,
+				D167A5182ED789D400708453 /* imconfig.h in Headers */,
+				D167A51F2ED789D400708453 /* imgui.h in Headers */,
+				D167A4FF2ED789D400708453 /* crude_json.h in Headers */,
+				D167A5002ED789D400708453 /* imgui_bezier_math.h in Headers */,
+				D167A50E2ED789D400708453 /* imgui_extra_math.h in Headers */,
+				D167A50D2ED789D400708453 /* imgui_canvas.h in Headers */,
+				D167A5322ED789D400708453 /* imgui_memory_editor.h in Headers */,
+				D167A5032ED789D400708453 /* imgui_extra_math.h in Headers */,
+				D167A50A2ED789D400708453 /* crude_json.h in Headers */,
+				D167A4FD2ED789D400708453 /* YYStd.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D167A48C2ED7894100708453 /* ImGM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D167A4982ED7894100708453 /* Build configuration list for PBXNativeTarget "ImGM" */;
+			buildPhases = (
+				D167A4892ED7894100708453 /* Headers */,
+				D167A48A2ED7894100708453 /* Sources */,
+				D167A48B2ED7894100708453 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImGM;
+			productName = ImGM;
+			productReference = D167A48D2ED7894100708453 /* libImGM.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D167A4852ED7894100708453 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					D167A48C2ED7894100708453 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = D167A4882ED7894100708453 /* Build configuration list for PBXProject "ImGM" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D167A4842ED7894100708453;
+			productRefGroup = D167A48E2ED7894100708453 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D167A48C2ED7894100708453 /* ImGM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D167A48A2ED7894100708453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D167A51A2ED789D400708453 /* imgui_draw.cpp in Sources */,
+				D167A5062ED789D400708453 /* imgui_node_editor.cpp in Sources */,
+				D167A52E2ED789D400708453 /* imgui_input_gm.cpp in Sources */,
+				D167A52A2ED789D400708453 /* imgui_fonts_gm.cpp in Sources */,
+				D167A5362ED789D400708453 /* imgui_popup_gm.cpp in Sources */,
+				D167A50F2ED789D400708453 /* imgui_node_editor_api.cpp in Sources */,
+				D167A5412ED789D400708453 /* imgui_impl_gm.cpp in Sources */,
+				D167A5372ED789D400708453 /* imgui_selectable_gm.cpp in Sources */,
+				D167A5402ED789D400708453 /* imgui_window_gm.cpp in Sources */,
+				D167A5242ED789D400708453 /* imgui_color_gm.cpp in Sources */,
+				D167A53A2ED789D400708453 /* imgui_table_gm.cpp in Sources */,
+				D167A5232ED789D400708453 /* imgui_api_gm.cpp in Sources */,
+				D167A5192ED789D400708453 /* imgui_demo.cpp in Sources */,
+				D167A5272ED789D400708453 /* imgui_drag_gm.cpp in Sources */,
+				D167A4FE2ED789D400708453 /* crude_json.cpp in Sources */,
+				D167A5342ED789D400708453 /* imgui_payload_gm.cpp in Sources */,
+				D167A51E2ED789D400708453 /* imgui.cpp in Sources */,
+				D167A5332ED789D400708453 /* imgui_menu_gm.cpp in Sources */,
+				D167A5302ED789D400708453 /* imgui_layout_gm.cpp in Sources */,
+				D167A5042ED789D400708453 /* imgui_node_editor_api.cpp in Sources */,
+				D167A5352ED789D400708453 /* imgui_plots_gm.cpp in Sources */,
+				D167A5262ED789D400708453 /* imgui_docking_gm.cpp in Sources */,
+				D167A50C2ED789D400708453 /* imgui_canvas.cpp in Sources */,
+				D167A5112ED789D400708453 /* imgui_node_editor.cpp in Sources */,
+				D167A5292ED789D400708453 /* imgui_ext_memeditor_gm.cpp in Sources */,
+				D167A5392ED789D400708453 /* imgui_style_gm.cpp in Sources */,
+				D167A5442ED789D400708453 /* main.cpp in Sources */,
+				D167A53C2ED789D400708453 /* imgui_text_gm.cpp in Sources */,
+				D167A5382ED789D400708453 /* imgui_slider_gm.cpp in Sources */,
+				D167A53B2ED789D400708453 /* imgui_tabs_gm.cpp in Sources */,
+				D167A53F2ED789D400708453 /* imgui_widgets_gm.cpp in Sources */,
+				D167A52F2ED789D400708453 /* imgui_input_widgets_gm.cpp in Sources */,
+				D167A5282ED789D400708453 /* imgui_drawlist_gm.cpp in Sources */,
+				D167A5252ED789D400708453 /* imgui_combo_gm.cpp in Sources */,
+				D167A53D2ED789D400708453 /* imgui_tooltips_gm.cpp in Sources */,
+				D167A53E2ED789D400708453 /* imgui_tree_gm.cpp in Sources */,
+				D167A5092ED789D400708453 /* crude_json.cpp in Sources */,
+				D167A5312ED789D400708453 /* imgui_listbox_gm.cpp in Sources */,
+				D167A5082ED789D400708453 /* imgm.cpp in Sources */,
+				D167A51C2ED789D400708453 /* imgui_tables.cpp in Sources */,
+				D167A51D2ED789D400708453 /* imgui_widgets.cpp in Sources */,
+				D167A5012ED789D400708453 /* imgui_canvas.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D167A4962ED7894100708453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D167A4972ED7894100708453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D167A4992ED7894100708453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M96836KU9S;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D167A49A2ED7894100708453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M96836KU9S;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D167A4882ED7894100708453 /* Build configuration list for PBXProject "ImGM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D167A4962ED7894100708453 /* Debug */,
+				D167A4972ED7894100708453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D167A4982ED7894100708453 /* Build configuration list for PBXNativeTarget "ImGM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D167A4992ED7894100708453 /* Debug */,
+				D167A49A2ED7894100708453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D167A4852ED7894100708453 /* Project object */;
+}
