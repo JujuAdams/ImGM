@@ -358,12 +358,17 @@ if (main_open) {
             ImGui.Separator();
             ImGui.Text("Hello! " + chr(0x0647) + chr(0x0627)+ chr(0x064A) + "/هاي! привет!");
             ImGui.Separator();
-            ImGui.Text("You can load TTF/OTF font files from disk!");
-            ImGui.PushFont(global.font_roboto);
-            ImGui.Text("Hello! " + chr(0x0647) + chr(0x0627)+ chr(0x064A) + "/هاي! привет!");
-            ImGui.TextColored("And use them wherever!", c_aqua);
-            ImGui.Text("Pretty neat, right?!");
-            ImGui.PopFont();
+            
+            if (os_type != os_macosx)
+            {
+                ImGui.Text("You can load TTF/OTF font files from disk!");
+                ImGui.PushFont(global.font_roboto);
+                ImGui.Text("Hello! " + chr(0x0647) + chr(0x0627)+ chr(0x064A) + "/هاي! привет!");
+                ImGui.TextColored("And use them wherever!", c_aqua);
+                ImGui.Text("Pretty neat, right?!");
+                ImGui.PopFont();
+            }
+            
             ImGui.Text("And back to the default font ^_^");
         ImGui.EndChild();
 
