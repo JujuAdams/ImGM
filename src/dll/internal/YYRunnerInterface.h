@@ -25,8 +25,6 @@ typedef uint16_t uint16;
 typedef int8_t int8;
 typedef uint8_t uint8;
 
-#ifdef GDKEXTENSION_EXPORTS
-
 enum eBuffer_Format {
 	eBuffer_Format_Fixed = 0,
 	eBuffer_Format_Grow = 1,
@@ -37,10 +35,6 @@ enum eBuffer_Format {
 };
 
 class IBuffer;
-#else
-/* For eBuffer_Format */
-#include <Files/Buffer/IBuffer.h>
-#endif
 
 typedef void* HYYMUTEX;
 typedef void* HSPRITEASYNC;
@@ -49,8 +43,8 @@ struct YYRunnerInterface
 {
 	// ########################################################################
 	// BASIC INTERACTION WITH THE USER
-	// ########################################################################
-
+	// ######################################################################## 
+	
 	/**
 	 * @brief Writes a formatted string to the debug console output, analogous to printf.
 	 *
@@ -105,7 +99,7 @@ struct YYRunnerInterface
 
 	// ########################################################################
 	// MEMORY MANAGEMENT
-	// ########################################################################
+	// ######################################################################## 
 
 	/**
 	 * @brief Allocates a block of memory of size _size.
@@ -174,7 +168,7 @@ struct YYRunnerInterface
 
 	// ########################################################################
 	// ARGUMENT PARSING
-	// ########################################################################
+	// ######################################################################## 
 
 	/**
 	 * @brief Parses and retrieves a boolean value from the argument array at the specified index.
@@ -309,7 +303,7 @@ struct YYRunnerInterface
 
 	// ########################################################################
 	// RVALUE PARSING
-	// ########################################################################
+	// ######################################################################## 
 
 	/**
 	 * @brief Attempts to retrieve a boolean value by parsing|casting from a single RValue.
@@ -394,7 +388,7 @@ struct YYRunnerInterface
 	 */
 	int (*HASH_RValue)(const RValue* _pValue);
 
-
+	
 	// ########################################################################
 	// COPYING, GETTING, SETTING & FREEING RVALUES
 	// ########################################################################
@@ -474,7 +468,7 @@ struct YYRunnerInterface
 	 *		YYCreateString(&myRValue, "Hello, world!");
 	 */
 	void (*YYCreateString)(RValue* _pVal, const char* _pS);
-
+	
 	/**
 	 * @brief Creates a new array RValue.
 	 *
@@ -548,17 +542,17 @@ struct YYRunnerInterface
 	// ########################################################################
 	// MUTEX HANDLING
 	// ########################################################################
-
+	
 	/**
 	 * Mutexes, or mutual exclusions, are used in concurrent programming to avoid the simultaneous
-	 * execution of a piece of code that accesses shared resources, such as runtime elements like ds_maps,
+	 * execution of a piece of code that accesses shared resources, such as runtime elements like ds_maps, 
 	 * ds_lists, and buffers, by multiple threads.
-	 *
+	 * 
 	 * This helps in avoiding race conditions, ensuring that the shared resources are accessed in a mutually
 	 * exclusive manner. When a thread acquires a lock on a mutex, any other thread attempting to acquire the
 	 * same lock will block until the first thread releases the lock.
 	 */
-
+	
 	/**
 	 * @brief Creates a new mutex with the given name.
 	 *
@@ -647,7 +641,7 @@ struct YYRunnerInterface
 	 *       They will be automatically freed once the event is finished.
 	 */
 	void (*CreateAsyncEventWithDSMapAndBuffer)(int _map, int _buffer, int _event);
-
+	
 
 	// ########################################################################
 	// DS_MAP MANIPULATION
@@ -813,7 +807,7 @@ struct YYRunnerInterface
 	 * @note When a ds_list added to a ds_map using DsMapAddList is removed
 	 *       (e.g., via DsMapClear), it is automatically freed by the runner
 	 *       and does not require manual freeing.
-	 *
+	 * 
 	 * Usage example:
 	 *
 	 *		DsMapAddList(mapIndex, "myListKey", listIndex);
@@ -829,7 +823,7 @@ struct YYRunnerInterface
 	 * @note When a ds_map added to a ds_list using DsListAddMap is removed
 	 *       (e.g., via DsListClear), it is also automatically freed by the
 	 *       runner and does not require manual freeing.
-	 *
+	 * 
 	 * Usage example:
 	 *
 	 *		DsListAddMap(listIndex, mapIndex);
@@ -844,7 +838,7 @@ struct YYRunnerInterface
 	 * @note Clearing a ds_map with DsMapClear will also automatically free
 	 *       any ds_lists that have been added to it with DsMapAddList,
 	 *       ensuring that no memory leaks occur.
-	 *
+	 * 
 	 * Usage example:
 	 *
 	 *		DsMapClear(mapIndex);
@@ -859,7 +853,7 @@ struct YYRunnerInterface
 	 * @note Clearing a ds_list with DsListClear will also automatically free
 	 *       any ds_maps that have been added to it with DsListAddMap,
 	 *       avoiding any memory leaks.
-	 *
+	 * 
 	 * Usage example:
 	 *
 	 *		DsListClear(listIndex);
@@ -907,7 +901,7 @@ struct YYRunnerInterface
 	 * @note Ensure the output buffer is large enough to store the encoded data.
 	 */
 	bool (*Base64Encode)(const void* input_buf, size_t input_len, void* output_buf, size_t output_len);
-
+	
 	// ########################################################################
 	// DS_LIST MANIPULATION
 	// ########################################################################
@@ -1004,7 +998,7 @@ struct YYRunnerInterface
 	 * @note Ensure the RValue is properly initialized and set before using it as a parameter.
 	 */
 	void (*DsMapAddRValue)(int _index, const char* _pKey, RValue* value);
-
+	
 	/**
 	 * @brief Frees a ds_map from memory.
 	 *
@@ -1108,7 +1102,7 @@ struct YYRunnerInterface
 	bool (*WhiteListIsFilenameIn)(const char* _pszFilename);
 	void (*WhiteListAddTo)(const char* _pszFilename, bool _bIsDir);
 	bool (*DirExists)(const char* filename);
-
+	
 	// ########################################################################
 	// BUFFER ACCESS (ADV)
 	// ########################################################################
@@ -1153,7 +1147,7 @@ struct YYRunnerInterface
 	 *       actual data in the buffer.
 	 */
 	unsigned char* (*BufferGet)(IBuffer* buff);
-
+	
 	const char* (*FilePrePend)(void);
 
 	// ########################################################################
@@ -1360,7 +1354,7 @@ struct YYRunnerInterface
 };
 
 
-#if defined(__YYDEFINE_EXTENSION_FUNCTIONS__)
+
 extern YYRunnerInterface* g_pYYRunnerInterface;
 
 // basic interaction with the user
@@ -1375,7 +1369,7 @@ inline void ShowMessage(const char* msg) { g_pYYRunnerInterface->ShowMessage(msg
 inline void* YYAlloc(int _size) { return g_pYYRunnerInterface->YYAlloc(_size); }
 inline void* YYRealloc(void* pOriginal, int _newSize) { return g_pYYRunnerInterface->YYRealloc(pOriginal, _newSize); }
 inline void  YYFree(const void* p) { g_pYYRunnerInterface->YYFree(p); }
-inline const char* YYStrDup(const char* _pS) { return g_pYYRunnerInterface->YYStrDup(_pS); } // NOTE: Modified for ImGM
+inline const char* YYStrDup(const char* _pS) { return g_pYYRunnerInterface->YYStrDup(_pS); }
 
 // yyget* functions for parsing arguments out of the arg index
 inline bool YYGetBool(const RValue* _pBase, int _index) { return g_pYYRunnerInterface->YYGetBool(_pBase, _index); }
@@ -1442,7 +1436,7 @@ inline void YYMutexDestroy(HYYMUTEX hMutex) { g_pYYRunnerInterface->YYMutexDestr
 inline void YYMutexLock(HYYMUTEX hMutex) { g_pYYRunnerInterface->YYMutexLock(hMutex); }
 inline void YYMutexUnlock(HYYMUTEX hMutex) { g_pYYRunnerInterface->YYMutexUnlock(hMutex); }
 
-// ds map manipulation for
+// ds map manipulation for 
 inline void CreateAsyncEventWithDSMap(int _map, int _event) { return g_pYYRunnerInterface->CreateAsyncEventWithDSMap(_map, _event); }
 inline void CreateAsyncEventWithDSMapAndBuffer(int _map, int _buffer, int _event) { return g_pYYRunnerInterface->CreateAsyncEventWithDSMapAndBuffer(_map, _buffer, _event); }
 #define CreateDsMap(_num, ...) g_pYYRunnerInterface->CreateDsMap( _num, __VA_ARGS__ )
@@ -1507,9 +1501,6 @@ inline const char* extGetVersion(const char* _ext) { return g_pYYRunnerInterface
 
 #define g_LiveConnection	(*g_pYYRunnerInterface->pLiveConnection)
 #define g_HTTP_ID			(*g_pYYRunnerInterface->pHTTP_ID)
-
-
-#endif
 
 
 /*

@@ -1,5 +1,8 @@
 // Copyright © Opera Norway AS. All rights reserved.
 // This file is an original work developed by Opera.
+
+#include "YYRunnerInterface.h"
+
 #ifndef __YYRVALUE_H__
 #define  __YYRVALUE_H__
 

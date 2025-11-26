@@ -1,7 +1,7 @@
 #pragma once
 //#pragma warning( disable : 4244 )
 #include <stddef.h>
-#include <internal/gm.h>
+#include "internal/gm.h"
 
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -25,7 +25,7 @@
 #include <backends/imgui_impl_win32.h>
 #include <d3d11.h>
 #else
-#define GMEXPORT __attribute__((visibility("default"))) //MacOS and Linux
+#define GMEXPORT __attribute((visibility("default"))) //MacOS and Linux
 #endif
 
 #define GMFUNC(name) GMEXPORT void name(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)

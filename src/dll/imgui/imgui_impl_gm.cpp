@@ -3,7 +3,7 @@
 #include <string>
 #include <imgm.h>
 #include <imgui_impl_gm.h>
-#include "gm.h"
+#include "../internal/gm.h"
 
 static char* g_pWrite[128];
 template<typename T> inline void BufferWrite(int buffer, T val, int& offset, bool grow = true) {

@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 #include <string>
-#include <imgui_impl_gm.h>
+#include "imgui/imgui_impl_gm.h"
 #include <imgm.h>
 
 static bool g_ImGuiInitialized = false;
@@ -35,7 +35,7 @@ GMEXPORT void YYExtensionInitialise(const struct YYRunnerInterface* _pFunctions,
 }
 
 GMFUNC(__imgui_initialize) {
-	HWND window_handle = (HWND)YYGetPtr(arg, 0);
+	void* window_handle = YYGetPtr(arg, 0);
 
 	void* ctx = YYGetPtr(arg, 1);
 	GMDEFAULT(undefined);
