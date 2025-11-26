@@ -1,6 +1,6 @@
 #pragma once
 #include <imgui.h>
-#include <../internal/gm.h>
+#include "../internal/gm.h"
 
 extern int g_CmdBuffer;
 extern int g_FontBuffer;

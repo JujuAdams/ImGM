@@ -1,6 +1,5 @@
 #pragma warning(disable: 4244)
 
-#include <tchar.h>
 #include <stdlib.h>
 #include <string>
 #include <imgui_impl_gm.h>

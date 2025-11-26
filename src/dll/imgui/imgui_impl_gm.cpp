@@ -1,10 +1,9 @@
 #pragma warning(disable: 4244)
 
 #include <string>
-#include <tchar.h>
 #include <imgm.h>
 #include <imgui_impl_gm.h>
-#include <../internal/gm.h>
+#include "../internal/gm.h"
 
 static char* g_pWrite[128];
 template<typename T> inline void BufferWrite(int buffer, T val, int& offset, bool grow = true) {
