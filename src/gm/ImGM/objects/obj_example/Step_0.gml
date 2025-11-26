@@ -2,9 +2,6 @@
 /// Step Event
 ///
 
-/// Docking
-if (global.enable_docking) ImGui.DockSpaceOverViewport();
-
 // Setup
 if (!surface_exists(surf)) {
     surf = surface_create(128, 128);
