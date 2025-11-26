@@ -130,11 +130,15 @@ void ImGui_ImplGM_Shutdown() {
 	IM_ASSERT(ud != nullptr && "No platform backend to shutdown, or already shutdown?");
 
 	ImGuiIO& io = ImGui::GetIO();
+    ImGuiPlatformIO& platform_io = ImGui::GetPlatformIO();
 
 	io.BackendPlatformName = nullptr;
 	io.UserData = nullptr;
 	io.BackendFlags &= ~(ImGuiBackendFlags_HasMouseCursors | ImGuiBackendFlags_HasSetMousePos);
 	io.BackendFlags |= (ImGuiBackendFlags_PlatformHasViewports | ImGuiBackendFlags_HasMouseHoveredViewport);
+    
+    platform_io.ClearPlatformHandlers();
+    ImGui::DestroyPlatformWindows();
 }
 
 void ImGui_ImplGM_NewFrame() {
